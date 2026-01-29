@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONFORMATION.AI | The Definition of Structure & Dynamics</title>
     <meta name="description" content="Premium Domain Asset for Sale. The defining keyword for AI Drug Discovery, Material Science, and Structural Biology.">
+    <!-- Google specific meta to prevent translation of specific brand terms if needed globally, though class='notranslate' is better -->
+    <meta name="google" content="notranslate" />
 
-    <!-- Fonts: Space Grotesk (Headlines) & Inter (Body) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -20,8 +22,8 @@
             --bg-card: #0f1115;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
-            --accent-core: #3b82f6; /* Tech Blue */
-            --accent-gold: #fbbf24; /* Premium Gold */
+            --accent-core: #3b82f6;
+            --accent-gold: #fbbf24;
             --border: rgba(255,255,255,0.08);
             --glow: rgba(59, 130, 246, 0.15);
         }
@@ -35,6 +37,9 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+
+        /* Utility Class to stop Google Translate */
+        .notranslate { translate: no; }
 
         h1, h2, h3, .brand-font { font-family: 'Space Grotesk', sans-serif; }
         a { text-decoration: none; color: inherit; }
@@ -53,31 +58,40 @@
         }
 
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -1px; }
-        .logo span { color: var(--accent-core); }
+        .logo { font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
 
         /* --- Hero Section --- */
         .hero {
             padding: 80px 0 60px;
             text-align: center;
             background: radial-gradient(circle at center, var(--glow) 0%, transparent 60%);
+            overflow: hidden;
         }
 
-        .hero-title {
-            font-size: clamp(3rem, 7vw, 5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(180deg, #fff 20%, #94a3b8 100%);
+        /* Massive Brand Title */
+        .mega-title {
+            font-size: clamp(3.5rem, 11vw, 9rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            background: linear-gradient(180deg, #ffffff 0%, #475569 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .tld {
+            color: var(--accent-core);
+            -webkit-text-fill-color: var(--accent-core);
+            font-weight: 300;
         }
 
         .hero-sub {
             font-size: 1.25rem;
             color: var(--text-muted);
             max-width: 700px;
-            margin: 0 auto 50px;
+            margin: 20px auto 60px;
             font-weight: 300;
         }
 
@@ -89,7 +103,7 @@
             padding: 40px;
             max-width: 500px;
             margin: 0 auto;
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.15);
             position: relative;
         }
 
@@ -113,25 +127,29 @@
         .buy-btn {
             display: block;
             width: 100%;
-            background: var(--text-main);
+            background: #fff;
             color: #000;
             font-weight: 700;
             padding: 16px;
             border-radius: 6px;
             font-size: 1.1rem;
-            transition: transform 0.2s, background 0.2s;
+            transition: all 0.2s;
             margin-bottom: 15px;
+            border: 2px solid #fff;
         }
 
-        .buy-btn:hover { background: var(--accent-core); transform: translateY(-2px); }
+        .buy-btn:hover { 
+            background: var(--accent-core); 
+            border-color: var(--accent-core);
+            color: #fff;
+            transform: translateY(-2px); 
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
 
         /* --- Section Dividers --- */
-        .section-header {
-            text-align: center;
-            margin: 100px 0 60px;
-        }
+        .section-header { text-align: center; margin: 120px 0 60px; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .section-header p { color: var(--text-muted); }
+        .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
 
         /* --- 12 Grid (Scientific) --- */
         .grid-12 {
@@ -147,11 +165,10 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
         }
 
         .card:hover {
-            border-color: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
             transform: translateY(-5px);
             background: #15171c;
         }
@@ -168,7 +185,7 @@
             display: block;
         }
 
-        /* --- 6 Grid (Semantic) --- */
+        /* --- 6 Grid (Semantic) - Dynamic Colors --- */
         .grid-6 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -180,9 +197,42 @@
             border: 1px solid var(--border);
             padding: 35px;
             border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            /* Default fallback */
+            --theme-color: #fff; 
         }
 
-        .semantic-card h3 { color: var(--accent-gold); font-size: 1.3rem; margin-bottom: 10px; }
+        /* Hover Effect for Semantic Cards */
+        .semantic-card:hover {
+            border-color: var(--theme-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8), 
+                        0 0 15px -5px var(--theme-color);
+        }
+
+        .semantic-card h3 { 
+            color: #fff; 
+            font-size: 1.4rem; 
+            margin-bottom: 15px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+        
+        /* Icon color inside semantic card */
+        .semantic-card h3 i { color: var(--theme-color); }
+        
+        .semantic-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+        .semantic-label { 
+            display: block; 
+            margin-top: 15px; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            color: var(--theme-color);
+            opacity: 0.8;
+        }
 
         /* --- Footer --- */
         footer {
@@ -203,7 +253,6 @@
         .contact-email:hover { color: var(--accent-core); }
 
         @media (max-width: 768px) {
-            .hero-title { font-size: 3rem; }
             .grid-12, .grid-6 { grid-template-columns: 1fr; }
         }
     </style>
@@ -212,32 +261,39 @@
 
     <header>
         <div class="container nav-flex">
-            <div class="logo">CONFORMATION<span>.AI</span></div>
-            <a href="#purchase" class="buy-btn" style="width: auto; padding: 10px 20px; margin:0; font-size: 0.9rem;">Acquire Asset</a>
+            <!-- Small logo uses notranslate to ensure brand consistency -->
+            <div class="logo notranslate">CONFORMATION.AI</div>
+            <a href="https://www.afternic.com/domain/conformation.ai" target="_blank" class="buy-btn" style="width: auto; padding: 10px 20px; margin:0; font-size: 0.9rem; border:none; background: #fff; color: #000;">
+                Buy Now
+            </a>
         </div>
     </header>
 
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
-            <h1 class="hero-title">The Kinetic Layer of Intelligence</h1>
+            <!-- MEGA TITLE: Added notranslate class -->
+            <div class="mega-title notranslate">
+                Conformation<span class="tld">.AI</span>
+            </div>
+            
             <p class="hero-sub">
-                From molecular dynamics to industrial design. "Conformation" is the definitive keyword for structure, adaptation, and optimization in the AI era.
+                From molecular dynamics to industrial design. The definitive keyword for structure, adaptation, and optimization in the AI era.
             </p>
 
             <!-- PRICING BOX -->
             <div id="purchase" class="price-hero-card">
-                <span class="status-badge">Available Now</span>
+                <span class="status-badge">Premium Asset</span>
                 <div class="price-main">$42,000 <span style="font-size:1rem; color:#666; font-weight:400;">USD</span></div>
-                <div class="price-sub">or $3,500/mo for 12 months</div>
+                <div class="price-sub">or $3,500/mo financing available</div>
                 
-                <!-- Direct Link to Afternic or similar (Placeholder) -->
-                <a href="mailto:joshua369x@gmail.com?subject=Acquisition%20Offer%20for%20Conformation.ai" class="buy-btn">
-                    Secure This Asset Now
+                <!-- NEW: TARGET="_BLANK" for Afternic Link -->
+                <a href="https://www.afternic.com/domain/conformation.ai" target="_blank" class="buy-btn">
+                    Secure This Asset Now <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 8px; font-size: 0.8em;"></i>
                 </a>
                 
                 <p style="font-size: 0.85rem; color: #555;">
-                    <i class="fa-solid fa-lock"></i> Escrow transaction available via Afternic/Dan.
+                    <i class="fa-solid fa-lock"></i> Instant Transfer via Afternic/GoDaddy
                 </p>
             </div>
         </div>
@@ -255,139 +311,149 @@
                 <!-- 1. AIDD -->
                 <div class="card">
                     <h3><i class="fa-solid fa-microchip"></i> Generative AIDD</h3>
-                    <p>Moving beyond static AlphaFold structures. AI now generates molecules based on "Conformational Ensembles" to target hard-to-drug proteins.</p>
+                    <p>Moving beyond static AlphaFold structures. AI now generates molecules based on "<span class="notranslate">Conformational</span> Ensembles" to target hard-to-drug proteins.</p>
                     <span class="data-point">Market: $50B by 2028 | Term Freq: High</span>
                 </div>
 
                 <!-- 2. PROTACs -->
                 <div class="card">
                     <h3><i class="fa-solid fa-link"></i> PROTACs & Glues</h3>
-                    <p>Degrader success relies on the "induced conformation" of the ternary complex. This is the #1 metric for protein degradation efficacy.</p>
+                    <p>Degrader success relies on the "induced <span class="notranslate">conformation</span>" of the ternary complex. This is the #1 metric for protein degradation efficacy.</p>
                     <span class="data-point">Citation Count: 1.2M+ in Biology</span>
                 </div>
 
                 <!-- 3. Cryo-EM -->
                 <div class="card">
-                    <h3><i class="fa-solid fa-snowflake"></i> Cryo-EM & Structural Bio</h3>
-                    <p>The resolution revolution. Cryo-EM visualizes proteins in multiple conformations. This domain is the digital home for structural analysis.</p>
+                    <h3><i class="fa-solid fa-snowflake"></i> Cryo-EM & Bio</h3>
+                    <p>The resolution revolution. Cryo-EM visualizes proteins in multiple <span class="notranslate">conformations</span>. This domain is the digital home for structural analysis.</p>
                     <span class="data-point">Nobel Prize Field (2017)</span>
                 </div>
 
                 <!-- 4. Polymer Science -->
                 <div class="card">
                     <h3><i class="fa-solid fa-layer-group"></i> Polymer Engineering</h3>
-                    <p>In industrial materials, chain conformation determines elasticity and tensile strength. Critical for next-gen plastics and fibers.</p>
+                    <p>In industrial materials, chain <span class="notranslate">conformation</span> determines elasticity and tensile strength. Critical for next-gen plastics and fibers.</p>
                     <span class="data-point">Industrial Sector: $600B+</span>
                 </div>
 
                 <!-- 5. Immunotherapy -->
                 <div class="card">
-                    <h3><i class="fa-solid fa-shield-virus"></i> Immunotherapy (TCR)</h3>
-                    <p>T-Cell Receptors scan for antigens via conformational adjustments. Essential for designing safer CAR-T therapies.</p>
+                    <h3><i class="fa-solid fa-shield-virus"></i> Immunotherapy</h3>
+                    <p>T-Cell Receptors scan for antigens via <span class="notranslate">conformational</span> adjustments. Essential for designing safer CAR-T therapies.</p>
                     <span class="data-point">Nature Mentions: 150k+</span>
                 </div>
 
                 <!-- 6. Enzyme Engineering -->
                 <div class="card">
                     <h3><i class="fa-solid fa-flask"></i> Industrial Enzymes</h3>
-                    <p>Optimizing enzyme conformation increases catalytic efficiency for biofuels and green chemistry. The core of synthetic biology.</p>
+                    <p>Optimizing enzyme <span class="notranslate">conformation</span> increases catalytic efficiency for biofuels and green chemistry. The core of synthetic biology.</p>
                     <span class="data-point">Bio-Manufacturing Growth: 18% YoY</span>
                 </div>
 
                 <!-- 7. Nanotechnology -->
                 <div class="card">
-                    <h3><i class="fa-solid fa-atom"></i> Nanotech Self-Assembly</h3>
-                    <p>Nanobots and DNA origami rely on programmed conformational changes to actuate movement and drug delivery.</p>
+                    <h3><i class="fa-solid fa-atom"></i> Nanotech Assembly</h3>
+                    <p>Nanobots and DNA origami rely on programmed <span class="notranslate">conformational</span> changes to actuate movement and drug delivery.</p>
                     <span class="data-point">Keyword: "Conformational Switch"</span>
                 </div>
 
                 <!-- 8. Neuroscience -->
                 <div class="card">
                     <h3><i class="fa-solid fa-brain"></i> Neuro & Prions</h3>
-                    <p>Alzheimer’s and Prion diseases are pathologies of "Misfolded Conformation". This keyword defines the entire neuro-degenerative field.</p>
+                    <p>Alzheimer’s and Prion diseases are pathologies of "Misfolded <span class="notranslate">Conformation</span>". This keyword defines the entire neuro-degenerative field.</p>
                     <span class="data-point">NIH Grant Volume: Massive</span>
                 </div>
 
                 <!-- 9. AgriTech -->
                 <div class="card">
-                    <h3><i class="fa-solid fa-leaf"></i> AgriTech & Pesticides</h3>
-                    <p>Designing crop protection agents that fit the specific conformation of pest receptors without harming humans.</p>
+                    <h3><i class="fa-solid fa-leaf"></i> AgriTech</h3>
+                    <p>Designing crop protection agents that fit the specific <span class="notranslate">conformation</span> of pest receptors without harming humans.</p>
                     <span class="data-point">Agri-Science Journals: Core Term</span>
                 </div>
 
                 <!-- 10. Quantum Biology -->
                 <div class="card">
                     <h3><i class="fa-solid fa-bolt"></i> Quantum Biology</h3>
-                    <p>Electron transfer in photosynthesis and enzymes depends on precise nuclear conformation. The frontier of biophysics.</p>
+                    <p>Electron transfer in photosynthesis and enzymes depends on precise nuclear <span class="notranslate">conformation</span>. The frontier of biophysics.</p>
                     <span class="data-point">Emerging Deep Tech Sector</span>
                 </div>
 
                 <!-- 11. Biosensors -->
                 <div class="card">
                     <h3><i class="fa-solid fa-rss"></i> Biosensors</h3>
-                    <p>Sensors that detect glucose or toxins by undergoing a measurable conformational change upon binding. Critical for MedTech.</p>
+                    <p>Sensors that detect glucose or toxins by undergoing a measurable <span class="notranslate">conformational</span> change upon binding. Critical for MedTech.</p>
                     <span class="data-point">Wearable Tech Market</span>
                 </div>
 
                 <!-- 12. FDA/Regulatory -->
                 <div class="card">
                     <h3><i class="fa-solid fa-scale-balanced"></i> FDA Stability</h3>
-                    <p>Regulatory bodies mandate "Conformational Stability" data for biologics. It is a compliance requirement, not just a scientific one.</p>
+                    <p>Regulatory bodies mandate "<span class="notranslate">Conformational</span> Stability" data for biologics. It is a compliance requirement.</p>
                     <span class="data-point">FDA Guidance 2025/2026</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6 SEMANTIC MEANINGS -->
+    <!-- 6 SEMANTIC EXPANSIONS -->
     <section>
         <div class="container">
             <div class="section-header">
-                <h2>Linguistic Versatility</h2>
-                <p>Beyond Biology: 6 Dimensions of "Conformation" for Tech & Industry.</p>
+                <h2>Linguistic Potential</h2>
+                <p>6 Dimensions of the word "<span class="notranslate">Conformation</span>" beyond Biology.</p>
             </div>
+
+            <!-- 
+               Theme Colors:
+               Structure: #06b6d4 (Cyan)
+               Formation: #f97316 (Orange)
+               Adaptation: #10b981 (Emerald)
+               Shape: #8b5cf6 (Violet)
+               Creation: #ec4899 (Pink)
+               Conquest: #eab308 (Gold)
+            -->
 
             <div class="grid-6">
                 <!-- 1. Structure -->
-                <div class="semantic-card">
-                    <h3><i class="fa-solid fa-cubes"></i> Structure & Architecture</h3>
-                    <p><strong>Meaning:</strong> The arrangement of parts. <br>
-                    <strong>Application:</strong> Software architecture patterns, structural engineering AI, and robust system design.</p>
+                <div class="semantic-card" style="--theme-color: #06b6d4;">
+                    <h3><i class="fa-solid fa-cubes"></i> Structure</h3>
+                    <p>Arrangement of parts. The blueprint for software architecture patterns and robust AI system design.</p>
+                    <span class="semantic-label">Computing & Eng.</span>
                 </div>
 
                 <!-- 2. Formation -->
-                <div class="semantic-card">
-                    <h3><i class="fa-solid fa-mountain"></i> Formation & Energy</h3>
-                    <p><strong>Meaning:</strong> The act of forming; geological structure.<br>
-                    <strong>Application:</strong> Geological AI for oil/gas exploration ("Formation Evaluation"), Energy sector modeling.</p>
+                <div class="semantic-card" style="--theme-color: #f97316;">
+                    <h3><i class="fa-solid fa-mountain"></i> Formation</h3>
+                    <p>The act of forming. Critical for Geological AI (Oil/Gas formation evaluation) and Energy modeling.</p>
+                    <span class="semantic-label">Energy Sector</span>
                 </div>
 
                 <!-- 3. Adaptation -->
-                <div class="semantic-card">
-                    <h3><i class="fa-solid fa-code-branch"></i> Adaptation & Compliance</h3>
-                    <p><strong>Meaning:</strong> The act of conforming or adapting.<br>
-                    <strong>Application:</strong> RegTech (Regulatory Technology). AI that ensures banking/legal systems "conform" to new laws.</p>
+                <div class="semantic-card" style="--theme-color: #10b981;">
+                    <h3><i class="fa-solid fa-code-branch"></i> Adaptation</h3>
+                    <p>The act of conforming to rules. The foundation of RegTech: ensuring systems conform to new laws.</p>
+                    <span class="semantic-label">FinTech & Legal</span>
                 </div>
 
                 <!-- 4. Shape -->
-                <div class="semantic-card">
-                    <h3><i class="fa-solid fa-shapes"></i> Shape & Geometry</h3>
-                    <p><strong>Meaning:</strong> The spatial form of an object.<br>
-                    <strong>Application:</strong> 3D Computer Vision, Geometric Deep Learning, and Spatial Computing (VR/AR).</p>
+                <div class="semantic-card" style="--theme-color: #8b5cf6;">
+                    <h3><i class="fa-solid fa-shapes"></i> Shape</h3>
+                    <p>Spatial form and geometry. The core of 3D Computer Vision and Spatial Computing (VR/AR).</p>
+                    <span class="semantic-label">Spatial Computing</span>
                 </div>
 
-                <!-- 5. Causation/Creation -->
-                <div class="semantic-card">
-                    <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Creation & Output</h3>
-                    <p><strong>Meaning:</strong> To cause to be formed.<br>
-                    <strong>Application:</strong> Generative AI Manufacturing. "Conformation" as the result of a generative design process.</p>
+                <!-- 5. Creation -->
+                <div class="semantic-card" style="--theme-color: #ec4899;">
+                    <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Creation</h3>
+                    <p>The result of a generative process. "Conformation" as the high-fidelity output of Generative Manufacturing.</p>
+                    <span class="semantic-label">GenAI Design</span>
                 </div>
 
-                <!-- 6. Conquest/Mastery -->
-                <div class="semantic-card">
-                    <h3><i class="fa-solid fa-chess-king"></i> Conquest & Standardization</h3>
-                    <p><strong>Meaning:</strong> Dominating the standard.<br>
-                    <strong>Application:</strong> Market Conformity. Setting the industry standard that others must follow. The "Category King" play.</p>
+                <!-- 6. Conquest -->
+                <div class="semantic-card" style="--theme-color: #eab308;">
+                    <h3><i class="fa-solid fa-chess-king"></i> Conquest</h3>
+                    <p>Dominating the standard. Market Conformity means setting the rules that competitors must follow.</p>
+                    <span class="semantic-label">Business Strategy</span>
                 </div>
             </div>
         </div>
@@ -397,22 +463,21 @@
     <footer>
         <div class="container">
             <h3 style="margin-bottom: 20px;">Acquire Category Sovereignty</h3>
-            <div class="contact-email" onclick="copyEmail()">joshua369x@gmail.com</div>
-            <p style="margin-top: 15px; color: #555;">Click to Copy Address</p>
+            
+            <a href="mailto:joshua369x@gmail.com?subject=Acquisition%20Offer%20for%20Conformation.ai" class="contact-email">
+                joshua369x@gmail.com
+            </a>
+            
+            <p style="margin-top: 15px; color: #555;">Or click "Secure This Asset" above for instant checkout</p>
             <p style="margin-top: 50px; font-size: 0.8rem; color: #333; text-transform: uppercase;">
-                &copy; 2026 Conformation.ai Digital Asset. All Rights Reserved.
+                &copy; 2026 <span class="notranslate">Conformation.ai</span> Digital Asset. All Rights Reserved.
             </p>
         </div>
     </footer>
 
     <script>
-        function copyEmail() {
-            const email = "joshua369x@gmail.com";
-            navigator.clipboard.writeText(email).then(function() {
-                alert("Email address copied to clipboard: " + email);
-                window.location.href = "mailto:" + email + "?subject=Acquisition%20Offer%20for%20Conformation.ai";
-            });
-        }
+        // Optional: Any additional scripts can go here
+        console.log("Conformation.ai - Category Sovereignty");
     </script>
 </body>
 </html>
