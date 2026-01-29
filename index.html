@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONFORMATION.AI | The Definition of Structure & Dynamics</title>
     <meta name="description" content="Premium Domain Asset for Sale. The defining keyword for AI Drug Discovery, Material Science, and Structural Biology.">
-    <!-- Google specific meta to prevent translation of specific brand terms if needed globally, though class='notranslate' is better -->
     <meta name="google" content="notranslate" />
 
     <!-- Fonts -->
@@ -38,7 +37,7 @@
             overflow-x: hidden;
         }
 
-        /* Utility Class to stop Google Translate */
+        /* Prevent Google Translate on Brand Name */
         .notranslate { translate: no; }
 
         h1, h2, h3, .brand-font { font-family: 'Space Grotesk', sans-serif; }
@@ -68,23 +67,64 @@
             overflow: hidden;
         }
 
-        /* Massive Brand Title */
+        /* --- DYNAMIC TITLE STYLING --- */
         .mega-title {
-            font-size: clamp(3.5rem, 11vw, 9rem);
+            /* Responsive Font Size: Smaller on mobile to fit screen */
+            font-size: clamp(2.5rem, 11vw, 8.5rem); 
             font-weight: 800;
-            line-height: 1;
-            letter-spacing: -0.03em;
-            background: linear-gradient(180deg, #ffffff 0%, #475569 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 15px;
             text-transform: uppercase;
+            /* Flex center to keep parts together */
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            flex-wrap: wrap; /* Allows wrapping on very small screens if needed */
+            gap: 0;
         }
 
-        .tld {
+        /* Part 1: Conformation (The Structure) */
+        .title-word {
+            background: linear-gradient(180deg, #ffffff 20%, #64748b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Animation: Conformational Change (Breathing) */
+            animation: conform-breathe 6s ease-in-out infinite;
+        }
+
+        /* Part 2: .AI (The Energy) */
+        .title-tld {
             color: var(--accent-core);
-            -webkit-text-fill-color: var(--accent-core);
+            -webkit-text-fill-color: var(--accent-core); /* Override gradient */
             font-weight: 300;
+            /* Animation: Tech Pulse */
+            animation: ai-pulse 3s ease-in-out infinite alternate;
+            margin-left: 2px;
+        }
+
+        /* Keyframes for "Conformational Change" */
+        @keyframes conform-breathe {
+            0%, 100% { 
+                letter-spacing: -0.02em; 
+                transform: scale(1);
+            }
+            50% { 
+                letter-spacing: 0.01em; /* Expands slightly like a molecule binding */
+                transform: scale(1.02);
+            }
+        }
+
+        /* Keyframes for ".AI Pulse" */
+        @keyframes ai-pulse {
+            0% { 
+                text-shadow: 0 0 10px rgba(59, 130, 246, 0.0);
+                opacity: 0.8;
+            }
+            100% { 
+                text-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+                opacity: 1;
+            }
         }
 
         .hero-sub {
@@ -199,11 +239,9 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             position: relative;
-            /* Default fallback */
             --theme-color: #fff; 
         }
 
-        /* Hover Effect for Semantic Cards */
         .semantic-card:hover {
             border-color: var(--theme-color);
             transform: translateY(-5px);
@@ -220,9 +258,7 @@
             gap: 12px; 
         }
         
-        /* Icon color inside semantic card */
         .semantic-card h3 i { color: var(--theme-color); }
-        
         .semantic-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
         .semantic-label { 
             display: block; 
@@ -254,6 +290,8 @@
 
         @media (max-width: 768px) {
             .grid-12, .grid-6 { grid-template-columns: 1fr; }
+            /* Mobile adjustment for title spacing */
+            .mega-title { gap: 0; }
         }
     </style>
 </head>
@@ -261,7 +299,6 @@
 
     <header>
         <div class="container nav-flex">
-            <!-- Small logo uses notranslate to ensure brand consistency -->
             <div class="logo notranslate">CONFORMATION.AI</div>
             <a href="https://www.afternic.com/domain/conformation.ai" target="_blank" class="buy-btn" style="width: auto; padding: 10px 20px; margin:0; font-size: 0.9rem; border:none; background: #fff; color: #000;">
                 Buy Now
@@ -272,9 +309,9 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
-            <!-- MEGA TITLE: Added notranslate class -->
+            <!-- MEGA TITLE: Dynamic & Responsive -->
             <div class="mega-title notranslate">
-                Conformation<span class="tld">.AI</span>
+                <span class="title-word">Conformation</span><span class="title-tld">.AI</span>
             </div>
             
             <p class="hero-sub">
@@ -287,7 +324,7 @@
                 <div class="price-main">$42,000 <span style="font-size:1rem; color:#666; font-weight:400;">USD</span></div>
                 <div class="price-sub">or $3,500/mo financing available</div>
                 
-                <!-- NEW: TARGET="_BLANK" for Afternic Link -->
+                <!-- Direct Open in New Tab -->
                 <a href="https://www.afternic.com/domain/conformation.ai" target="_blank" class="buy-btn">
                     Secure This Asset Now <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 8px; font-size: 0.8em;"></i>
                 </a>
@@ -395,7 +432,7 @@
         </div>
     </section>
 
-    <!-- 6 SEMANTIC EXPANSIONS -->
+    <!-- 6 SEMANTIC EXPANSIONS - WITH DYNAMIC COLORS -->
     <section>
         <div class="container">
             <div class="section-header">
@@ -404,7 +441,7 @@
             </div>
 
             <!-- 
-               Theme Colors:
+               Dynamic Colors:
                Structure: #06b6d4 (Cyan)
                Formation: #f97316 (Orange)
                Adaptation: #10b981 (Emerald)
@@ -474,10 +511,5 @@
             </p>
         </div>
     </footer>
-
-    <script>
-        // Optional: Any additional scripts can go here
-        console.log("Conformation.ai - Category Sovereignty");
-    </script>
 </body>
 </html>
