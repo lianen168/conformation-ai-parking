@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONFORMATION.AI | The Definition of Structure & Dynamics</title>
     <meta name="description" content="Premium Domain Asset for Sale. The defining keyword for AI Drug Discovery, Material Science, and Structural Biology.">
-    
-    <!-- Prevents Google Translate from changing 'Conformation' to 'Confirmation' or 'Agreement' -->
+    <!-- Prevent translation -->
     <meta name="google" content="notranslate" />
 
     <!-- Fonts -->
@@ -37,8 +36,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-            /* Enable 3D space for the page */
-            perspective: 1000px;
+            perspective: 1000px; /* Enable 3D space for the page */
         }
 
         .notranslate { translate: no; }
@@ -63,27 +61,32 @@
 
         /* --- Hero Section --- */
         .hero {
-            padding: 80px 0 60px;
+            padding: 60px 0 60px; /* Reduced top padding slightly */
             text-align: center;
             background: radial-gradient(circle at center, var(--glow) 0%, transparent 60%);
-            /* Ensure 3D elements don't get cut off */
-            transform-style: preserve-3d; 
+            overflow: hidden; 
+            transform-style: preserve-3d;
         }
 
-        /* --- 3D MEGA TITLE STYLING (UPDATED) --- */
+        /* --- 3D MEGA TITLE (RESIZED & STACKED) --- */
         .mega-title {
-            /* Responsive Font Size: Smaller on mobile to fit screen */
-            font-size: clamp(2.2rem, 9vw, 6.5rem);
+            /* 
+               Font Size Reduced by ~25% 
+               Old: clamp(2rem, 8vw, 6rem)
+               New: clamp(1.5rem, 6vw, 4.5rem)
+            */
+            font-size: clamp(1.5rem, 6vw, 4.5rem); 
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 30px;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            margin-bottom: 20px;
             text-transform: uppercase;
             
-            /* Flex layout to align word and TLD */
+            /* Stacked Layout: Flex Column */
             display: flex;
+            flex-direction: column; /* This puts .AI below Conformation */
             justify-content: center;
-            align-items: baseline;
-            flex-wrap: wrap;
+            align-items: center;
             gap: 10px;
             
             /* 3D Context */
@@ -91,85 +94,69 @@
             perspective: 500px;
         }
 
-        /* PART 1: CONFORMATION (Structural/Metallic) */
+        /* Part 1: Conformation (The 3D Object) */
         .title-word {
+            color: #e2e8f0;
             position: relative;
-            color: #e2e8f0; 
-            z-index: 1;
+            display: inline-block;
             
-            /* The "Thickness" of the 3D text (Stacked Shadows) */
+            /* 3D Layering Effect */
             text-shadow: 
                 0 1px 0 #475569,
                 0 2px 0 #334155,
                 0 3px 0 #1e293b,
                 0 4px 0 #0f172a,
                 0 5px 0 #020617,
-                0 6px 1px rgba(0,0,0,0.1),
-                0 0 5px rgba(0,0,0,0.1),
-                0 1px 3px rgba(0,0,0,0.3),
-                0 3px 5px rgba(0,0,0,0.2),
-                0 5px 10px rgba(0,0,0,0.25),
-                0 10px 10px rgba(0,0,0,0.2),
+                0 10px 10px rgba(0,0,0,0.2), /* Softened shadow */
                 0 20px 20px rgba(0,0,0,0.15);
-
-            /* Animation: Floating in 3D space */
+            
+            /* Animation: Slow Molecular Float */
             animation: structure-float 6s ease-in-out infinite;
         }
 
-        /* The Metallic Gradient Face overlay */
+        /* Metallic Overlay */
         .title-word::before {
             content: attr(data-text);
             position: absolute;
             left: 0;
             top: 0;
             z-index: 2;
-            /* Cold Steel Gradient */
             background: linear-gradient(180deg, #ffffff 0%, #94a3b8 50%, #475569 51%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: none; /* Remove shadow from the face layer */
+            text-shadow: none;
             opacity: 0.95;
         }
 
-        /* PART 2: .AI (Energy/Light) */
+        /* Part 2: .AI (The Energy Source) */
         .title-tld {
             font-family: 'Space Grotesk', monospace;
-            color: #fff;
-            position: relative;
-            z-index: 2;
+            color: var(--accent-core);
+            font-weight: 300;
+            font-size: 0.8em; /* Slightly smaller than main word */
             
-            /* Neon Glow */
+            /* Glowing Effect */
             text-shadow: 
                 0 0 10px var(--accent-core),
-                0 0 20px var(--accent-core),
-                0 0 40px var(--accent-core);
+                0 0 20px var(--accent-core);
             
-            /* Animation: Pulse */
-            animation: ai-pulse 2s infinite alternate;
+            /* Animation: Tech Pulse */
+            animation: ai-pulse 3s ease-in-out infinite alternate;
         }
 
         /* 3D Float Animation */
         @keyframes structure-float {
-            0%, 100% {
+            0%, 100% { 
                 transform: rotateX(0deg) rotateY(0deg) translateY(0);
             }
-            50% {
-                /* Slight rotation to show depth */
-                transform: rotateX(15deg) rotateY(-5deg) translateY(-10px);
-                /* Shadow gets softer and further away */
-                text-shadow: 
-                    0 1px 0 #475569,
-                    0 2px 0 #334155,
-                    0 3px 0 #1e293b,
-                    0 4px 0 #0f172a,
-                    0 5px 0 #020617,
-                    0 25px 30px rgba(0,0,0,0.4); 
+            50% { 
+                transform: rotateX(10deg) rotateY(5deg) translateY(-8px);
             }
         }
 
         @keyframes ai-pulse {
-            0% { opacity: 0.8; transform: scale(1); text-shadow: 0 0 10px var(--accent-core); }
-            100% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 30px var(--accent-core), 0 0 60px var(--accent-core); }
+            0% { opacity: 0.7; text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
+            100% { opacity: 1; text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
         }
 
         .hero-sub {
@@ -284,7 +271,6 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             position: relative;
-            /* Default Color */
             --theme-color: #fff; 
         }
 
@@ -337,7 +323,6 @@
         /* Mobile specific adjustments */
         @media (max-width: 768px) {
             .grid-12, .grid-6 { grid-template-columns: 1fr; }
-            .mega-title { gap: 5px; } /* Tighter gap on mobile */
         }
     </style>
 </head>
