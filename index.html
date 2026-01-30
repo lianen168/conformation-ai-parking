@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONFORMATION.AI | The Definition of Structure & Dynamics</title>
     <meta name="description" content="Premium Domain Asset for Sale. The defining keyword for AI Drug Discovery, Material Science, and Structural Biology.">
+    <!-- Prevent translation -->
     <meta name="google" content="notranslate" />
 
     <!-- Fonts -->
@@ -21,7 +22,7 @@
             --bg-card: #0f1115;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
-            --accent-core: #3b82f6;
+            --accent-core: #3b82f6; /* Tech Blue */
             --accent-gold: #fbbf24;
             --border: rgba(255,255,255,0.08);
             --glow: rgba(59, 130, 246, 0.15);
@@ -35,11 +36,10 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
+            perspective: 1000px; /* Enable 3D space for the page */
         }
 
-        /* Prevent Google Translate on Brand Name */
         .notranslate { translate: no; }
-
         h1, h2, h3, .brand-font { font-family: 'Space Grotesk', sans-serif; }
         a { text-decoration: none; color: inherit; }
 
@@ -64,67 +64,75 @@
             padding: 80px 0 60px;
             text-align: center;
             background: radial-gradient(circle at center, var(--glow) 0%, transparent 60%);
-            overflow: hidden;
+            overflow: hidden; /* Hide overflow from 3D animations */
         }
 
-        /* --- DYNAMIC TITLE STYLING --- */
+        /* --- 3D MEGA TITLE --- */
         .mega-title {
-            /* Responsive Font Size: Smaller on mobile to fit screen */
-            font-size: clamp(2.5rem, 11vw, 8.5rem); 
+            /* Reduced Size for Better UX */
+            font-size: clamp(2rem, 8vw, 6rem); 
             font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 15px;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            /* Flex center to keep parts together */
+            
+            /* Flexbox to keep parts together */
             display: flex;
             justify-content: center;
             align-items: baseline;
-            flex-wrap: wrap; /* Allows wrapping on very small screens if needed */
-            gap: 0;
+            flex-wrap: wrap;
+            gap: 5px;
+            
+            /* 3D Context */
+            transform-style: preserve-3d;
         }
 
-        /* Part 1: Conformation (The Structure) */
+        /* Part 1: Conformation (The 3D Object) */
         .title-word {
-            background: linear-gradient(180deg, #ffffff 20%, #64748b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* Animation: Conformational Change (Breathing) */
-            animation: conform-breathe 6s ease-in-out infinite;
+            color: #e2e8f0;
+            position: relative;
+            display: inline-block;
+            
+            /* 3D Layering Effect (Neumorphism/Depth) */
+            text-shadow: 
+                1px 1px 0px #475569,
+                2px 2px 0px #334155,
+                3px 3px 0px #1e293b,
+                4px 4px 0px #0f172a,
+                5px 5px 15px rgba(0,0,0,0.6);
+            
+            /* Animation: Slow Molecular Float */
+            animation: molecule-float 6s ease-in-out infinite;
         }
 
-        /* Part 2: .AI (The Energy) */
+        /* Part 2: .AI (The Energy Source) */
         .title-tld {
+            font-family: 'Space Grotesk', monospace;
             color: var(--accent-core);
-            -webkit-text-fill-color: var(--accent-core); /* Override gradient */
             font-weight: 300;
+            
+            /* Glowing Effect */
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+            
             /* Animation: Tech Pulse */
             animation: ai-pulse 3s ease-in-out infinite alternate;
-            margin-left: 2px;
         }
 
-        /* Keyframes for "Conformational Change" */
-        @keyframes conform-breathe {
+        /* 3D Float Animation - Simulating Molecular Rotation */
+        @keyframes molecule-float {
             0%, 100% { 
-                letter-spacing: -0.02em; 
-                transform: scale(1);
+                transform: rotateX(0deg) rotateY(0deg) translateY(0);
             }
             50% { 
-                letter-spacing: 0.01em; /* Expands slightly like a molecule binding */
-                transform: scale(1.02);
+                /* Subtle tilt and lift */
+                transform: rotateX(10deg) rotateY(5deg) translateY(-10px);
             }
         }
 
-        /* Keyframes for ".AI Pulse" */
         @keyframes ai-pulse {
-            0% { 
-                text-shadow: 0 0 10px rgba(59, 130, 246, 0.0);
-                opacity: 0.8;
-            }
-            100% { 
-                text-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
-                opacity: 1;
-            }
+            0% { opacity: 0.7; text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
+            100% { opacity: 1; text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
         }
 
         .hero-sub {
@@ -135,7 +143,7 @@
             font-weight: 300;
         }
 
-        /* --- Pricing Card (Hero) --- */
+        /* --- Pricing Card --- */
         .price-hero-card {
             background: var(--bg-card);
             border: 1px solid var(--accent-core);
@@ -186,7 +194,7 @@
             box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
         }
 
-        /* --- Section Dividers --- */
+        /* --- Section Header --- */
         .section-header { text-align: center; margin: 120px 0 60px; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
         .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
@@ -290,8 +298,6 @@
 
         @media (max-width: 768px) {
             .grid-12, .grid-6 { grid-template-columns: 1fr; }
-            /* Mobile adjustment for title spacing */
-            .mega-title { gap: 0; }
         }
     </style>
 </head>
@@ -309,7 +315,7 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
-            <!-- MEGA TITLE: Dynamic & Responsive -->
+            <!-- MEGA TITLE: 3D Structure + Pulse -->
             <div class="mega-title notranslate">
                 <span class="title-word">Conformation</span><span class="title-tld">.AI</span>
             </div>
@@ -439,16 +445,6 @@
                 <h2>Linguistic Potential</h2>
                 <p>6 Dimensions of the word "<span class="notranslate">Conformation</span>" beyond Biology.</p>
             </div>
-
-            <!-- 
-               Dynamic Colors:
-               Structure: #06b6d4 (Cyan)
-               Formation: #f97316 (Orange)
-               Adaptation: #10b981 (Emerald)
-               Shape: #8b5cf6 (Violet)
-               Creation: #ec4899 (Pink)
-               Conquest: #eab308 (Gold)
-            -->
 
             <div class="grid-6">
                 <!-- 1. Structure -->
