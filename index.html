@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONFORMATION.AI | The Definition of Structure & Dynamics</title>
     <meta name="description" content="Premium Domain Asset for Sale. The defining keyword for AI Drug Discovery, Material Science, and Structural Biology.">
-    <!-- Prevent translation -->
+    
+    <!-- Prevents Google Translate from changing 'Conformation' to 'Confirmation' or 'Agreement' -->
     <meta name="google" content="notranslate" />
 
     <!-- Fonts -->
@@ -36,7 +37,8 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-            perspective: 1000px; /* Enable 3D space for the page */
+            /* Enable 3D space for the page */
+            perspective: 1000px;
         }
 
         .notranslate { translate: no; }
@@ -64,75 +66,110 @@
             padding: 80px 0 60px;
             text-align: center;
             background: radial-gradient(circle at center, var(--glow) 0%, transparent 60%);
-            overflow: hidden; /* Hide overflow from 3D animations */
+            /* Ensure 3D elements don't get cut off */
+            transform-style: preserve-3d; 
         }
 
-        /* --- 3D MEGA TITLE --- */
+        /* --- 3D MEGA TITLE STYLING (UPDATED) --- */
         .mega-title {
-            /* Reduced Size for Better UX */
-            font-size: clamp(2rem, 8vw, 6rem); 
+            /* Responsive Font Size: Smaller on mobile to fit screen */
+            font-size: clamp(2.2rem, 9vw, 6.5rem);
             font-weight: 800;
             line-height: 1.2;
-            letter-spacing: 0.02em;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             text-transform: uppercase;
             
-            /* Flexbox to keep parts together */
+            /* Flex layout to align word and TLD */
             display: flex;
             justify-content: center;
             align-items: baseline;
             flex-wrap: wrap;
-            gap: 5px;
+            gap: 10px;
             
             /* 3D Context */
             transform-style: preserve-3d;
+            perspective: 500px;
         }
 
-        /* Part 1: Conformation (The 3D Object) */
+        /* PART 1: CONFORMATION (Structural/Metallic) */
         .title-word {
-            color: #e2e8f0;
             position: relative;
-            display: inline-block;
+            color: #e2e8f0; 
+            z-index: 1;
             
-            /* 3D Layering Effect (Neumorphism/Depth) */
+            /* The "Thickness" of the 3D text (Stacked Shadows) */
             text-shadow: 
-                1px 1px 0px #475569,
-                2px 2px 0px #334155,
-                3px 3px 0px #1e293b,
-                4px 4px 0px #0f172a,
-                5px 5px 15px rgba(0,0,0,0.6);
-            
-            /* Animation: Slow Molecular Float */
-            animation: molecule-float 6s ease-in-out infinite;
+                0 1px 0 #475569,
+                0 2px 0 #334155,
+                0 3px 0 #1e293b,
+                0 4px 0 #0f172a,
+                0 5px 0 #020617,
+                0 6px 1px rgba(0,0,0,0.1),
+                0 0 5px rgba(0,0,0,0.1),
+                0 1px 3px rgba(0,0,0,0.3),
+                0 3px 5px rgba(0,0,0,0.2),
+                0 5px 10px rgba(0,0,0,0.25),
+                0 10px 10px rgba(0,0,0,0.2),
+                0 20px 20px rgba(0,0,0,0.15);
+
+            /* Animation: Floating in 3D space */
+            animation: structure-float 6s ease-in-out infinite;
         }
 
-        /* Part 2: .AI (The Energy Source) */
+        /* The Metallic Gradient Face overlay */
+        .title-word::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            /* Cold Steel Gradient */
+            background: linear-gradient(180deg, #ffffff 0%, #94a3b8 50%, #475569 51%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none; /* Remove shadow from the face layer */
+            opacity: 0.95;
+        }
+
+        /* PART 2: .AI (Energy/Light) */
         .title-tld {
             font-family: 'Space Grotesk', monospace;
-            color: var(--accent-core);
-            font-weight: 300;
+            color: #fff;
+            position: relative;
+            z-index: 2;
             
-            /* Glowing Effect */
-            text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+            /* Neon Glow */
+            text-shadow: 
+                0 0 10px var(--accent-core),
+                0 0 20px var(--accent-core),
+                0 0 40px var(--accent-core);
             
-            /* Animation: Tech Pulse */
-            animation: ai-pulse 3s ease-in-out infinite alternate;
+            /* Animation: Pulse */
+            animation: ai-pulse 2s infinite alternate;
         }
 
-        /* 3D Float Animation - Simulating Molecular Rotation */
-        @keyframes molecule-float {
-            0%, 100% { 
+        /* 3D Float Animation */
+        @keyframes structure-float {
+            0%, 100% {
                 transform: rotateX(0deg) rotateY(0deg) translateY(0);
             }
-            50% { 
-                /* Subtle tilt and lift */
-                transform: rotateX(10deg) rotateY(5deg) translateY(-10px);
+            50% {
+                /* Slight rotation to show depth */
+                transform: rotateX(15deg) rotateY(-5deg) translateY(-10px);
+                /* Shadow gets softer and further away */
+                text-shadow: 
+                    0 1px 0 #475569,
+                    0 2px 0 #334155,
+                    0 3px 0 #1e293b,
+                    0 4px 0 #0f172a,
+                    0 5px 0 #020617,
+                    0 25px 30px rgba(0,0,0,0.4); 
             }
         }
 
         @keyframes ai-pulse {
-            0% { opacity: 0.7; text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
-            100% { opacity: 1; text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
+            0% { opacity: 0.8; transform: scale(1); text-shadow: 0 0 10px var(--accent-core); }
+            100% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 30px var(--accent-core), 0 0 60px var(--accent-core); }
         }
 
         .hero-sub {
@@ -247,6 +284,7 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             position: relative;
+            /* Default Color */
             --theme-color: #fff; 
         }
 
@@ -296,8 +334,10 @@
         }
         .contact-email:hover { color: var(--accent-core); }
 
+        /* Mobile specific adjustments */
         @media (max-width: 768px) {
             .grid-12, .grid-6 { grid-template-columns: 1fr; }
+            .mega-title { gap: 5px; } /* Tighter gap on mobile */
         }
     </style>
 </head>
@@ -305,7 +345,9 @@
 
     <header>
         <div class="container nav-flex">
+            <!-- Added notranslate to logo -->
             <div class="logo notranslate">CONFORMATION.AI</div>
+            <!-- Target="_blank" added to header button -->
             <a href="https://www.afternic.com/domain/conformation.ai" target="_blank" class="buy-btn" style="width: auto; padding: 10px 20px; margin:0; font-size: 0.9rem; border:none; background: #fff; color: #000;">
                 Buy Now
             </a>
@@ -315,9 +357,13 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
-            <!-- MEGA TITLE: 3D Structure + Pulse -->
+            <!-- 
+                MEGA TITLE: 3D Structure 
+                Note: 'data-text' attribute is required for the metallic overlay effect
+            -->
             <div class="mega-title notranslate">
-                <span class="title-word">Conformation</span><span class="title-tld">.AI</span>
+                <span class="title-word" data-text="Conformation">Conformation</span>
+                <span class="title-tld">.AI</span>
             </div>
             
             <p class="hero-sub">
@@ -447,42 +493,42 @@
             </div>
 
             <div class="grid-6">
-                <!-- 1. Structure -->
+                <!-- 1. Structure (Cyan) -->
                 <div class="semantic-card" style="--theme-color: #06b6d4;">
                     <h3><i class="fa-solid fa-cubes"></i> Structure</h3>
                     <p>Arrangement of parts. The blueprint for software architecture patterns and robust AI system design.</p>
                     <span class="semantic-label">Computing & Eng.</span>
                 </div>
 
-                <!-- 2. Formation -->
+                <!-- 2. Formation (Orange) -->
                 <div class="semantic-card" style="--theme-color: #f97316;">
                     <h3><i class="fa-solid fa-mountain"></i> Formation</h3>
                     <p>The act of forming. Critical for Geological AI (Oil/Gas formation evaluation) and Energy modeling.</p>
                     <span class="semantic-label">Energy Sector</span>
                 </div>
 
-                <!-- 3. Adaptation -->
+                <!-- 3. Adaptation (Emerald) -->
                 <div class="semantic-card" style="--theme-color: #10b981;">
                     <h3><i class="fa-solid fa-code-branch"></i> Adaptation</h3>
                     <p>The act of conforming to rules. The foundation of RegTech: ensuring systems conform to new laws.</p>
                     <span class="semantic-label">FinTech & Legal</span>
                 </div>
 
-                <!-- 4. Shape -->
+                <!-- 4. Shape (Violet) -->
                 <div class="semantic-card" style="--theme-color: #8b5cf6;">
                     <h3><i class="fa-solid fa-shapes"></i> Shape</h3>
                     <p>Spatial form and geometry. The core of 3D Computer Vision and Spatial Computing (VR/AR).</p>
                     <span class="semantic-label">Spatial Computing</span>
                 </div>
 
-                <!-- 5. Creation -->
+                <!-- 5. Creation (Pink) -->
                 <div class="semantic-card" style="--theme-color: #ec4899;">
                     <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Creation</h3>
                     <p>The result of a generative process. "Conformation" as the high-fidelity output of Generative Manufacturing.</p>
                     <span class="semantic-label">GenAI Design</span>
                 </div>
 
-                <!-- 6. Conquest -->
+                <!-- 6. Conquest (Gold) -->
                 <div class="semantic-card" style="--theme-color: #eab308;">
                     <h3><i class="fa-solid fa-chess-king"></i> Conquest</h3>
                     <p>Dominating the standard. Market Conformity means setting the rules that competitors must follow.</p>
@@ -507,5 +553,14 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        function copyEmail() {
+            const email = "joshua369x@gmail.com";
+            navigator.clipboard.writeText(email).then(function() {
+                alert("Email address copied: " + email);
+            });
+        }
+    </script>
 </body>
 </html>
