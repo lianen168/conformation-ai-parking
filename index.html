@@ -7,7 +7,6 @@
     <meta name="description" content="Premium Domain Asset for Sale. The defining keyword for AI Drug Discovery, Material Science, and Structural Biology.">
     <!-- Prevent translation -->
     <meta name="google" content="notranslate" />
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +14,6 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         :root {
             --bg-body: #050505;
@@ -27,9 +25,7 @@
             --border: rgba(255,255,255,0.08);
             --glow: rgba(59, 130, 246, 0.15);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             background-color: var(--bg-body);
             color: var(--text-main);
@@ -38,13 +34,10 @@
             overflow-x: hidden;
             perspective: 1000px; /* Enable 3D space for the page */
         }
-
         .notranslate { translate: no; }
         h1, h2, h3, .brand-font { font-family: 'Space Grotesk', sans-serif; }
         a { text-decoration: none; color: inherit; }
-
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
         /* --- Header --- */
         header {
             padding: 20px 0;
@@ -55,10 +48,8 @@
             backdrop-filter: blur(10px);
             z-index: 100;
         }
-
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
-
         /* --- Hero Section --- */
         .hero {
             padding: 60px 0 60px; /* Reduced top padding slightly */
@@ -67,7 +58,6 @@
             overflow: hidden; 
             transform-style: preserve-3d;
         }
-
         /* --- 3D MEGA TITLE (RESIZED & STACKED) --- */
         .mega-title {
             /* 
@@ -93,7 +83,6 @@
             transform-style: preserve-3d;
             perspective: 500px;
         }
-
         /* Part 1: Conformation (The 3D Object) */
         .title-word {
             color: #e2e8f0;
@@ -113,7 +102,6 @@
             /* Animation: Slow Molecular Float */
             animation: structure-float 6s ease-in-out infinite;
         }
-
         /* Metallic Overlay */
         .title-word::before {
             content: attr(data-text);
@@ -127,7 +115,6 @@
             text-shadow: none;
             opacity: 0.95;
         }
-
         /* Part 2: .AI (The Energy Source) */
         .title-tld {
             font-family: 'Space Grotesk', monospace;
@@ -143,7 +130,6 @@
             /* Animation: Tech Pulse */
             animation: ai-pulse 3s ease-in-out infinite alternate;
         }
-
         /* 3D Float Animation */
         @keyframes structure-float {
             0%, 100% { 
@@ -153,12 +139,10 @@
                 transform: rotateX(10deg) rotateY(5deg) translateY(-8px);
             }
         }
-
         @keyframes ai-pulse {
             0% { opacity: 0.7; text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
             100% { opacity: 1; text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
         }
-
         .hero-sub {
             font-size: 1.25rem;
             color: var(--text-muted);
@@ -166,7 +150,6 @@
             margin: 20px auto 60px;
             font-weight: 300;
         }
-
         /* --- Pricing Card --- */
         .price-hero-card {
             background: var(--bg-card);
@@ -178,7 +161,6 @@
             box-shadow: 0 0 50px rgba(59, 130, 246, 0.15);
             position: relative;
         }
-
         .status-badge {
             position: absolute;
             top: -12px;
@@ -192,7 +174,6 @@
             border-radius: 20px;
             text-transform: uppercase;
         }
-
         .price-main { font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
         .price-sub { font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 20px; }
         
@@ -209,7 +190,6 @@
             margin-bottom: 15px;
             border: 2px solid #fff;
         }
-
         .buy-btn:hover { 
             background: var(--accent-core); 
             border-color: var(--accent-core);
@@ -217,19 +197,16 @@
             transform: translateY(-2px); 
             box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
         }
-
         /* --- Section Header --- */
         .section-header { text-align: center; margin: 120px 0 60px; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
         .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
-
         /* --- 12 Grid (Scientific) --- */
         .grid-12 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
         }
-
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -238,13 +215,11 @@
             transition: all 0.3s ease;
             position: relative;
         }
-
         .card:hover {
             border-color: rgba(255,255,255,0.3);
             transform: translateY(-5px);
             background: #15171c;
         }
-
         .card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #fff; display: flex; align-items: center; gap: 10px; }
         .card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; line-height: 1.5; }
         
@@ -256,14 +231,12 @@
             padding-top: 10px;
             display: block;
         }
-
         /* --- 6 Grid (Semantic) - Dynamic Colors --- */
         .grid-6 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
         }
-
         .semantic-card {
             background: linear-gradient(145deg, #0f1115 0%, #050505 100%);
             border: 1px solid var(--border);
@@ -273,14 +246,12 @@
             position: relative;
             --theme-color: #fff; 
         }
-
         .semantic-card:hover {
             border-color: var(--theme-color);
             transform: translateY(-5px);
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8), 
                         0 0 15px -5px var(--theme-color);
         }
-
         .semantic-card h3 { 
             color: #fff; 
             font-size: 1.4rem; 
@@ -302,6 +273,53 @@
             opacity: 0.8;
         }
 
+        /* --- NEW: COUNTER OFFER SECTION --- */
+        .offer-wrapper {
+            max-width: 600px;
+            margin: 100px auto 0 auto;
+            background: rgba(15, 17, 21, 0.8);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 40px;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+        /* Corners for "Scientific/Structural" look */
+        .offer-wrapper::before { content: ''; position: absolute; top: -1px; left: -1px; width: 15px; height: 15px; border-top: 2px solid var(--accent-core); border-left: 2px solid var(--accent-core); }
+        .offer-wrapper::after { content: ''; position: absolute; bottom: -1px; right: -1px; width: 15px; height: 15px; border-bottom: 2px solid var(--accent-core); border-right: 2px solid var(--accent-core); }
+        
+        .offer-title {
+            text-align: center; font-family: 'Space Grotesk'; text-transform: uppercase; 
+            color: var(--text-main); font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 2rem;
+        }
+        .lab-form { display: flex; flex-direction: column; gap: 15px; }
+        
+        .lab-input {
+            background: #050505; border: 1px solid var(--border);
+            color: var(--text-main); font-family: 'Space Grotesk', monospace;
+            padding: 15px; font-size: 1rem; width: 100%;
+            transition: 0.3s;
+        }
+        .lab-input:focus {
+            outline: none; border-color: var(--accent-core);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+            color: var(--accent-core);
+        }
+        .lab-input::placeholder { color: #555; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+
+        .btn-submit {
+            background: transparent; border: 1px solid var(--accent-core);
+            color: var(--accent-core); font-family: 'Space Grotesk'; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; padding: 15px;
+            cursor: pointer; transition: 0.3s; margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background: var(--accent-core); color: #000;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+        .status-msg { text-align: center; margin-top: 15px; font-family: 'Space Grotesk'; font-size: 0.8rem; min-height: 1.2em; }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+
         /* --- Footer --- */
         footer {
             margin-top: 100px;
@@ -309,7 +327,6 @@
             border-top: 1px solid var(--border);
             text-align: center;
         }
-
         .contact-email {
             font-size: 1.5rem;
             font-weight: 700;
@@ -319,15 +336,14 @@
             transition: color 0.3s;
         }
         .contact-email:hover { color: var(--accent-core); }
-
         /* Mobile specific adjustments */
         @media (max-width: 768px) {
             .grid-12, .grid-6 { grid-template-columns: 1fr; }
+            .offer-wrapper { width: 90%; padding: 25px; }
         }
     </style>
 </head>
 <body>
-
     <header>
         <div class="container nav-flex">
             <!-- Added notranslate to logo -->
@@ -354,7 +370,6 @@
             <p class="hero-sub">
                 From molecular dynamics to industrial design. The definitive keyword for structure, adaptation, and optimization in the AI era.
             </p>
-
             <!-- PRICING BOX -->
             <div id="purchase" class="price-hero-card">
                 <span class="status-badge">Premium Asset</span>
@@ -380,7 +395,6 @@
                 <h2>12 Scientific Pillars</h2>
                 <p>The core terminology for Pharma, Biotech, and Industrial Engineering.</p>
             </div>
-
             <div class="grid-12">
                 <!-- 1. AIDD -->
                 <div class="card">
@@ -388,77 +402,66 @@
                     <p>Moving beyond static AlphaFold structures. AI now generates molecules based on "<span class="notranslate">Conformational</span> Ensembles" to target hard-to-drug proteins.</p>
                     <span class="data-point">Market: $50B by 2028 | Term Freq: High</span>
                 </div>
-
                 <!-- 2. PROTACs -->
                 <div class="card">
                     <h3><i class="fa-solid fa-link"></i> PROTACs & Glues</h3>
                     <p>Degrader success relies on the "induced <span class="notranslate">conformation</span>" of the ternary complex. This is the #1 metric for protein degradation efficacy.</p>
                     <span class="data-point">Citation Count: 1.2M+ in Biology</span>
                 </div>
-
                 <!-- 3. Cryo-EM -->
                 <div class="card">
                     <h3><i class="fa-solid fa-snowflake"></i> Cryo-EM & Bio</h3>
                     <p>The resolution revolution. Cryo-EM visualizes proteins in multiple <span class="notranslate">conformations</span>. This domain is the digital home for structural analysis.</p>
                     <span class="data-point">Nobel Prize Field (2017)</span>
                 </div>
-
                 <!-- 4. Polymer Science -->
                 <div class="card">
                     <h3><i class="fa-solid fa-layer-group"></i> Polymer Engineering</h3>
                     <p>In industrial materials, chain <span class="notranslate">conformation</span> determines elasticity and tensile strength. Critical for next-gen plastics and fibers.</p>
                     <span class="data-point">Industrial Sector: $600B+</span>
                 </div>
-
                 <!-- 5. Immunotherapy -->
                 <div class="card">
                     <h3><i class="fa-solid fa-shield-virus"></i> Immunotherapy</h3>
                     <p>T-Cell Receptors scan for antigens via <span class="notranslate">conformational</span> adjustments. Essential for designing safer CAR-T therapies.</p>
                     <span class="data-point">Nature Mentions: 150k+</span>
                 </div>
-
                 <!-- 6. Enzyme Engineering -->
                 <div class="card">
                     <h3><i class="fa-solid fa-flask"></i> Industrial Enzymes</h3>
                     <p>Optimizing enzyme <span class="notranslate">conformation</span> increases catalytic efficiency for biofuels and green chemistry. The core of synthetic biology.</p>
                     <span class="data-point">Bio-Manufacturing Growth: 18% YoY</span>
                 </div>
-
                 <!-- 7. Nanotechnology -->
                 <div class="card">
                     <h3><i class="fa-solid fa-atom"></i> Nanotech Assembly</h3>
                     <p>Nanobots and DNA origami rely on programmed <span class="notranslate">conformational</span> changes to actuate movement and drug delivery.</p>
                     <span class="data-point">Keyword: "Conformational Switch"</span>
                 </div>
-
                 <!-- 8. Neuroscience -->
                 <div class="card">
                     <h3><i class="fa-solid fa-brain"></i> Neuro & Prions</h3>
                     <p>Alzheimer’s and Prion diseases are pathologies of "Misfolded <span class="notranslate">Conformation</span>". This keyword defines the entire neuro-degenerative field.</p>
                     <span class="data-point">NIH Grant Volume: Massive</span>
                 </div>
-
                 <!-- 9. AgriTech -->
                 <div class="card">
                     <h3><i class="fa-solid fa-leaf"></i> AgriTech</h3>
                     <p>Designing crop protection agents that fit the specific <span class="notranslate">conformation</span> of pest receptors without harming humans.</p>
                     <span class="data-point">Agri-Science Journals: Core Term</span>
                 </div>
-
                 <!-- 10. Quantum Biology -->
                 <div class="card">
                     <h3><i class="fa-solid fa-bolt"></i> Quantum Biology</h3>
                     <p>Electron transfer in photosynthesis and enzymes depends on precise nuclear <span class="notranslate">conformation</span>. The frontier of biophysics.</p>
                     <span class="data-point">Emerging Deep Tech Sector</span>
                 </div>
-
                 <!-- 11. Biosensors -->
                 <div class="card">
                     <h3><i class="fa-solid fa-rss"></i> Biosensors</h3>
                     <p>Sensors that detect glucose or toxins by undergoing a measurable <span class="notranslate">conformational</span> change upon binding. Critical for MedTech.</p>
                     <span class="data-point">Wearable Tech Market</span>
                 </div>
-
                 <!-- 12. FDA/Regulatory -->
                 <div class="card">
                     <h3><i class="fa-solid fa-scale-balanced"></i> FDA Stability</h3>
@@ -476,7 +479,6 @@
                 <h2>Linguistic Potential</h2>
                 <p>6 Dimensions of the word "<span class="notranslate">Conformation</span>" beyond Biology.</p>
             </div>
-
             <div class="grid-6">
                 <!-- 1. Structure (Cyan) -->
                 <div class="semantic-card" style="--theme-color: #06b6d4;">
@@ -484,41 +486,60 @@
                     <p>Arrangement of parts. The blueprint for software architecture patterns and robust AI system design.</p>
                     <span class="semantic-label">Computing & Eng.</span>
                 </div>
-
                 <!-- 2. Formation (Orange) -->
                 <div class="semantic-card" style="--theme-color: #f97316;">
                     <h3><i class="fa-solid fa-mountain"></i> Formation</h3>
                     <p>The act of forming. Critical for Geological AI (Oil/Gas formation evaluation) and Energy modeling.</p>
                     <span class="semantic-label">Energy Sector</span>
                 </div>
-
                 <!-- 3. Adaptation (Emerald) -->
                 <div class="semantic-card" style="--theme-color: #10b981;">
                     <h3><i class="fa-solid fa-code-branch"></i> Adaptation</h3>
                     <p>The act of conforming to rules. The foundation of RegTech: ensuring systems conform to new laws.</p>
                     <span class="semantic-label">FinTech & Legal</span>
                 </div>
-
                 <!-- 4. Shape (Violet) -->
                 <div class="semantic-card" style="--theme-color: #8b5cf6;">
                     <h3><i class="fa-solid fa-shapes"></i> Shape</h3>
                     <p>Spatial form and geometry. The core of 3D Computer Vision and Spatial Computing (VR/AR).</p>
                     <span class="semantic-label">Spatial Computing</span>
                 </div>
-
                 <!-- 5. Creation (Pink) -->
                 <div class="semantic-card" style="--theme-color: #ec4899;">
                     <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Creation</h3>
                     <p>The result of a generative process. "Conformation" as the high-fidelity output of Generative Manufacturing.</p>
                     <span class="semantic-label">GenAI Design</span>
                 </div>
-
                 <!-- 6. Conquest (Gold) -->
                 <div class="semantic-card" style="--theme-color: #eab308;">
                     <h3><i class="fa-solid fa-chess-king"></i> Conquest</h3>
                     <p>Dominating the standard. Market Conformity means setting the rules that competitors must follow.</p>
                     <span class="semantic-label">Business Strategy</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTER OFFER / DATA ENTRY SECTION (NEW) -->
+    <section>
+        <div class="container">
+            <div class="offer-wrapper">
+                <h3 class="offer-title">Submit Counter-Valuation</h3>
+                <form id="offerForm" class="lab-form">
+                    <!-- FormSubmit Hidden Config -->
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Valuation: Conformation.ai">
+
+                    <input type="number" name="offer_amount" class="lab-input" placeholder="Enter Amount (USD)" min="1000" required>
+                    <input type="email" name="email" class="lab-input" placeholder="Contact Email (Corporate/Academic)" required>
+                    <textarea name="message" class="lab-input" rows="3" placeholder="Financing Terms / Strategic Intent (Optional)"></textarea>
+                    
+                    <button type="submit" class="btn-submit">
+                        <i class="fa-solid fa-upload"></i> Transmit Offer
+                    </button>
+                </form>
+                <div id="formStatus" class="status-msg"></div>
             </div>
         </div>
     </section>
@@ -546,6 +567,58 @@
                 alert("Email address copied: " + email);
             });
         }
+
+        /* --- AJAX FORM SUBMISSION LOGIC --- */
+        const offerForm = document.getElementById('offerForm');
+        const statusDiv = document.getElementById('formStatus');
+
+        offerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = offerForm.querySelector('.btn-submit');
+            const originalText = btn.innerHTML;
+            
+            // Loading State
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+            btn.style.opacity = "0.7";
+            btn.disabled = true;
+            statusDiv.innerText = "";
+            statusDiv.className = "status-msg";
+
+            const formData = new FormData(offerForm);
+            const data = Object.fromEntries(formData.entries());
+
+            // AJAX to FormSubmit
+            fetch("https://formsubmit.co/ajax/joshua369x@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Success
+                statusDiv.innerText = "Transmission Complete. We will analyze your data shortly.";
+                statusDiv.className = "status-msg success";
+                offerForm.reset();
+            })
+            .catch(error => {
+                // Error
+                statusDiv.innerText = "Transmission Error. Please contact joshua369x@gmail.com manually.";
+                statusDiv.className = "status-msg error";
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Reset Button
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.opacity = "1";
+                    btn.disabled = false;
+                }, 2000);
+            });
+        });
     </script>
 </body>
 </html>
