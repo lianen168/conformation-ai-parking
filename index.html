@@ -15,7 +15,7 @@
 </head>
 <body class="bg-[#0a0a0a] text-white min-h-screen relative">
 
-  <!-- Three.js 粒子 + 浮动DNA螺旋背景（极致未来感） -->
+  <!-- Three.js Futuristic Background -->
   <canvas id="threeCanvas" class="fixed inset-0 z-0 opacity-75"></canvas>
 
   <!-- Navbar -->
@@ -43,7 +43,7 @@
     </div>
   </header>
 
-  <!-- AI Interactive Demo -->
+  <!-- AI Demo -->
   <section id="demo" class="py-32 bg-black/70 relative z-10">
     <div class="max-w-6xl mx-auto px-8">
       <h2 class="text-5xl font-bold text-center mb-6">AI Conformation Predictor</h2>
@@ -100,7 +100,7 @@
     </div>
   </section>
 
-  <!-- Enterprise Inquiry Form -->
+  <!-- Enterprise Inquiry -->
   <footer class="py-32 bg-gradient-to-b from-black to-[#0a0a0a] relative z-10">
     <div class="max-w-2xl mx-auto px-8 text-center">
       <h2 class="text-5xl font-bold mb-8">Ready for Enterprise Partnership or Acquisition?</h2>
@@ -116,7 +116,7 @@
   </footer>
 
   <script>
-    // ============== Three.js Futuristic Background ==============
+    // Three.js Futuristic Background
     let scene, camera, renderer, helix;
     function initThree() {
       const canvas = document.getElementById('threeCanvas');
@@ -126,7 +126,6 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.position.z = 40;
 
-      // Particles
       const particles = new THREE.BufferGeometry();
       const count = 1800;
       const pos = new Float32Array(count * 3);
@@ -134,7 +133,6 @@
       particles.setAttribute('position', new THREE.BufferAttribute(pos, 3));
       scene.add(new THREE.Points(particles, new THREE.PointsMaterial({size:0.13, color:'#00f5ff', transparent:true})));
 
-      // Floating DNA Helix
       const points = [];
       for(let i = 0; i < 100; i++) {
         points.push(new THREE.Vector3(Math.sin(i*0.25)*9, i*0.35-18, Math.cos(i*0.25)*9));
@@ -150,7 +148,7 @@
       animate();
     }
 
-    // ============== 12 Scientific Pillars (your original content) ==============
+    // 12 Scientific Pillars
     const pillarsData = [
       {title:"Generative AIDD", desc:"Moving beyond static AlphaFold. AI now generates molecules using full conformational ensembles."},
       {title:"PROTACs & Molecular Glues", desc:"Success depends on induced conformation of the ternary complex — the #1 metric in degradation."},
@@ -176,7 +174,6 @@
     ];
 
     function renderCards() {
-      // Pillars
       const pGrid = document.getElementById('pillarsGrid');
       pillarsData.forEach(p => {
         const div = document.createElement('div');
@@ -185,7 +182,6 @@
         pGrid.appendChild(div);
       });
 
-      // Linguistic
       const lGrid = document.getElementById('lingGrid');
       lingData.forEach(l => {
         const div = document.createElement('div');
@@ -201,7 +197,6 @@
       document.getElementById('molstar').src = `https://www.rcsb.org/3d-view/${pdb}`;
     }
 
-    // Initialize
     window.onload = () => {
       initThree();
       renderCards();
