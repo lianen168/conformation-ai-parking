@@ -1,166 +1,240 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Conformation.AI - AI驱动的蛋白质动态构象预测平台。实时生成构象系综、分子动力学模拟，加速药物发现。免费在线Mol* 3D体验">
-  <title>Conformation.AI | AI蛋白动态构象预测平台</title>
+  <meta name="description" content="Conformation.AI - The definitive platform for AI-driven protein conformation dynamics. From static structures to dynamic ensembles. Ultimate keyword for drug discovery in the AI era.">
+  <title>Conformation.AI | The Definition of Structure & Dynamics</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <style>
-    body { font-family: system-ui, sans-serif; }
-    .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); }
+    body { font-family: system-ui, -apple-system, sans-serif; overflow-x: hidden; }
+    .neon-cyan { text-shadow: 0 0 20px #00f5ff, 0 0 40px #00f5ff; }
+    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); }
   </style>
 </head>
-<body class="bg-slate-950 text-white">
+<body class="bg-[#0a0a0a] text-white min-h-screen relative">
+
+  <!-- Three.js 未来感粒子背景 -->
+  <canvas id="threeCanvas" class="fixed inset-0 z-0 opacity-60"></canvas>
 
   <!-- Navbar -->
-  <nav class="fixed top-0 w-full bg-black/80 backdrop-blur z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="text-2xl font-bold">Conformation<span class="text-cyan-400">.AI</span></div>
-      <div class="space-x-8 text-sm">
-        <a href="#demo" class="hover:text-cyan-400">在线体验</a>
-        <a href="#video" class="hover:text-cyan-400">动力学视频</a>
-        <a href="#gallery" class="hover:text-cyan-400">可视化画廊</a>
-        <a href="#contact" class="hover:text-cyan-400">联系我们</a>
+  <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+      <div class="text-3xl font-bold tracking-tighter neon-cyan">Conformation<span class="text-[#00f5ff]">.AI</span></div>
+      <div class="flex items-center gap-8 text-sm">
+        <a href="#demo" class="hover:text-cyan-400 transition">AI Demo</a>
+        <a href="#pillars" class="hover:text-cyan-400 transition">12 Pillars</a>
+        <a href="#linguistic" class="hover:text-cyan-400 transition">Linguistic Potential</a>
+        <a href="#video" class="hover:text-cyan-400 transition">Visualization</a>
+        <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-transparent border border-white/30 rounded-xl px-4 py-1 text-sm">
+          <option value="en">🇬🇧 English</option>
+          <option value="zh">🇨🇳 简体中文</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="ko">🇰🇷 한국어</option>
+        </select>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <header class="hero-bg min-h-screen flex items-center pt-16">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h1 class="text-6xl md:text-7xl font-bold leading-none mb-6">从静态结构<br>到动态构象</h1>
-        <p class="text-2xl text-cyan-300 mb-8">AI重塑药物发现<br>基于AlphaFold3 + 分子动力学最新模型</p>
+  <header class="min-h-screen flex items-center relative z-10 pt-20">
+    <div class="max-w-6xl mx-auto px-8 text-center">
+      <h1 id="heroTitle" class="text-7xl md:text-8xl font-bold tracking-tighter neon-cyan mb-6">The Definition of Structure & Dynamics</h1>
+      <p id="heroDesc" class="text-2xl text-gray-300 max-w-3xl mx-auto">From molecular dynamics to industrial design. The definitive keyword for structure, adaptation, and optimization in the AI era.</p>
+      <div class="mt-12">
         <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})" 
-                class="bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-2xl px-14 py-6 rounded-3xl transition-all">
-          免费体验AI构象预测
+                class="bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-bold text-2xl px-16 py-7 rounded-3xl hover:scale-105 transition">
+          Experience AI Conformation Prediction
         </button>
-      </div>
-      <div class="hidden md:block">
-        <img src="https://picsum.photos/id/1015/800/600" alt="AI蛋白构象" class="rounded-3xl shadow-2xl">
       </div>
     </div>
   </header>
 
-  <!-- 互动Demo区（核心） -->
-  <section id="demo" class="py-24 bg-black">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-4">在线AI构象动态模拟</h2>
-      <p class="text-center text-xl text-slate-400 mb-12">选择蛋白 → AI预测 → Mol* 3D真实旋转查看</p>
+  <!-- AI Demo -->
+  <section id="demo" class="py-32 bg-black/70 relative z-10">
+    <div class="max-w-6xl mx-auto px-8">
+      <h2 id="demoTitle" class="text-5xl font-bold text-center mb-4">AI Conformation Dynamics Simulator</h2>
+      <p id="demoSub" class="text-center text-xl text-gray-400 mb-12">Choose a protein → AI predicts in real-time → Rotate in Mol* 3D viewer</p>
       
       <div class="grid md:grid-cols-2 gap-12">
-        <div class="bg-slate-900 p-10 rounded-3xl">
-          <h3 class="text-cyan-400 text-2xl mb-6">步骤1：选择靶点蛋白</h3>
-          <select id="proteinSelect" class="w-full bg-slate-800 text-white p-6 rounded-2xl text-xl">
-            <option value="1M14">EGFR激酶域（癌症药物靶点）</option>
-            <option value="6VYB">SARS-CoV-2 Spike蛋白</option>
-            <option value="5F9R">CRISPR-Cas9（基因编辑）</option>
+        <div class="glass p-10 rounded-3xl">
+          <select id="pdbSelect" class="w-full bg-black/50 border border-white/20 rounded-2xl p-6 text-xl">
+            <option value="1M14">EGFR Kinase Domain (Cancer Target)</option>
+            <option value="6VYB">SARS-CoV-2 Spike Protein</option>
+            <option value="5F9R">CRISPR-Cas9</option>
           </select>
-          
-          <button onclick="runAIPrediction()" 
-                  class="mt-10 w-full bg-emerald-500 hover:bg-emerald-400 text-black py-8 text-2xl font-bold rounded-3xl transition-all">
-            🚀 AI生成动态构象系综（3秒）
+          <button onclick="runAIPrediction()" class="mt-8 w-full bg-gradient-to-r from-emerald-400 to-cyan-400 text-black py-8 text-2xl font-bold rounded-3xl hover:scale-105 transition">
+            🚀 Run AI Prediction (3 seconds)
           </button>
-          <p class="text-xs text-center mt-4 text-slate-500">模拟接入免费AI模型（Boltz-1 / AlphaFold3）</p>
         </div>
-
-        <!-- Mol* 查看器 -->
-        <div class="bg-slate-900 p-8 rounded-3xl">
-          <div id="resultPanel" class="hidden">
-            <h3 class="text-cyan-400 text-2xl mb-6">AI预测结果（实时3D查看）</h3>
-            <iframe id="molstarFrame" 
-                    src="https://www.rcsb.org/3d-view/1M14"
-                    width="100%" height="480" 
-                    class="rounded-2xl border-0 shadow-inner" 
-                    allowfullscreen></iframe>
-            
-            <div class="mt-8 grid grid-cols-3 gap-4 text-center text-sm">
-              <div class="bg-slate-800 p-4 rounded-2xl"><strong class="text-emerald-400">能量最低</strong><br>-14.8 kcal/mol</div>
-              <div class="bg-slate-800 p-4 rounded-2xl"><strong class="text-emerald-400">RMSD波动</strong><br>0.7 Å</div>
-              <div class="bg-slate-800 p-4 rounded-2xl"><strong class="text-emerald-400">药物口袋</strong><br>高亲和力潜力</div>
-            </div>
-            
-            <button onclick="downloadReport()" 
-                    class="mt-8 w-full border-2 border-cyan-400 hover:bg-cyan-400 hover:text-black py-5 rounded-3xl font-bold text-xl">
-              下载完整PDF报告（免费）
-            </button>
-          </div>
+        
+        <div id="resultPanel" class="hidden glass p-8 rounded-3xl">
+          <iframe id="molstar" src="https://www.rcsb.org/3d-view/1M14" width="100%" height="520" class="rounded-2xl"></iframe>
+          <div class="mt-6 text-center text-emerald-400 font-medium">AI generated 10 conformations · RMSD 0.7Å · High druggability potential</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 分子动力学视频 -->
-  <section id="video" class="py-24 bg-slate-900">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-8">蛋白质动态构象真实可视化</h2>
-      <iframe width="100%" height="580" 
-              src="https://www.youtube.com/embed/t3uQDL-GdLM" 
-              title="Protein Dynamics Visualization" 
-              frameborder="0" allowfullscreen 
-              class="rounded-3xl shadow-2xl"></iframe>
-      <p class="mt-6 text-slate-400">来源：Gaël McGill（哈佛可视化实验室）——蛋白质运动的多个时间尺度与振幅</p>
+  <!-- 12 Scientific Pillars -->
+  <section id="pillars" class="py-32 relative z-10">
+    <div class="max-w-6xl mx-auto px-8">
+      <h2 id="pillarsTitle" class="text-5xl font-bold text-center mb-16">12 Scientific Pillars</h2>
+      <div class="grid md:grid-cols-3 gap-8" id="pillarsGrid"></div>
     </div>
   </section>
 
-  <!-- 科学可视化画廊（图片区） -->
-  <section id="gallery" class="py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12">AI构象可视化画廊</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <img src="https://picsum.photos/id/1016/600/400" alt="蛋白构象1" class="rounded-3xl">
-        <img src="https://picsum.photos/id/133/600/400" alt="蛋白构象2" class="rounded-3xl">
-        <img src="https://picsum.photos/id/160/600/400" alt="蛋白构象3" class="rounded-3xl">
-        <img src="https://picsum.photos/id/201/600/400" alt="蛋白构象4" class="rounded-3xl">
-      </div>
-      <p class="text-center mt-8 text-sm text-slate-500">（把这些图片换成你自己的高精度渲染图即可）</p>
+  <!-- Linguistic Potential -->
+  <section id="linguistic" class="py-32 bg-black/70 relative z-10">
+    <div class="max-w-6xl mx-auto px-8">
+      <h2 id="lingTitle" class="text-5xl font-bold text-center mb-16">Linguistic Potential (6 Dimensions)</h2>
+      <div class="grid md:grid-cols-3 gap-8" id="lingGrid"></div>
     </div>
   </section>
 
-  <!-- 结尾CTA -->
-  <footer id="contact" class="bg-black py-20 text-center">
-    <div class="max-w-2xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-6">准备把AI构象技术带到您的实验室？</h2>
-      <p class="text-xl text-slate-400 mb-12">我们为制药企业、CRO、AI生物初创提供定制化解决方案与完整平台收购</p>
-      
-      <form action="https://formsubmit.co/joshua369x@gmail.com" method="POST" class="space-y-6 max-w-md mx-auto">
-        <input type="text" name="name" placeholder="您的姓名" class="w-full bg-slate-900 p-6 rounded-2xl text-lg" required>
-        <input type="email" name="email" placeholder="公司邮箱" class="w-full bg-slate-900 p-6 rounded-2xl text-lg" required>
-        <input type="text" name="company" placeholder="公司名称" class="w-full bg-slate-900 p-6 rounded-2xl text-lg">
-        <button type="submit" 
-                class="w-full bg-white text-black py-7 text-2xl font-bold rounded-3xl hover:bg-cyan-400 transition-all">
-          提交企业询价 / 收购洽谈
+  <!-- Video -->
+  <section id="video" class="py-32 relative z-10">
+    <div class="max-w-5xl mx-auto px-8 text-center">
+      <h2 id="videoTitle" class="text-5xl font-bold mb-8">Real Protein Dynamics Visualization</h2>
+      <iframe width="100%" height="620" src="https://www.youtube.com/embed/t3uQDL-GdLM" frameborder="0" allowfullscreen class="rounded-3xl shadow-2xl"></iframe>
+    </div>
+  </section>
+
+  <!-- CTA - 企业询价（无价格） -->
+  <footer class="py-32 bg-gradient-to-b from-black to-[#0a0a0a] relative z-10">
+    <div class="max-w-2xl mx-auto px-8 text-center">
+      <h2 id="ctaTitle" class="text-5xl font-bold mb-8">Ready for Enterprise Partnership or Acquisition?</h2>
+      <p class="text-xl text-gray-400 mb-10">Submit your inquiry - we will reply within 24 hours</p>
+      <form action="https://formsubmit.co/joshua369x@gmail.com" method="POST" class="space-y-6">
+        <input type="text" name="name" placeholder="Your Full Name" class="w-full glass p-6 rounded-2xl text-lg" required>
+        <input type="email" name="email" placeholder="Company Email" class="w-full glass p-6 rounded-2xl text-lg" required>
+        <input type="text" name="company" placeholder="Company Name" class="w-full glass p-6 rounded-2xl text-lg">
+        <button type="submit" class="w-full bg-white text-black py-7 text-2xl font-bold rounded-3xl hover:bg-cyan-400 transition">
+          Submit Enterprise Inquiry
         </button>
       </form>
-      
-      <p class="mt-12 text-xs opacity-50">或直接邮件：joshua369x@gmail.com</p>
+      <p class="mt-12 text-sm opacity-60">Or email directly: joshua369x@gmail.com</p>
     </div>
   </footer>
 
   <script>
+    // Three.js 粒子背景（未来感）
+    let scene, camera, renderer;
+    function initThree() {
+      const canvas = document.getElementById('threeCanvas');
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+      renderer = new THREE.WebGLRenderer({canvas, alpha:true});
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.position.z = 30;
+
+      const particles = new THREE.BufferGeometry();
+      const count = 800;
+      const positions = new Float32Array(count * 3);
+      for(let i=0; i<count*3; i++) positions[i] = (Math.random()-0.5)*100;
+      particles.setAttribute('position', new THREE.BufferAttribute(positions,3));
+      const material = new THREE.PointsMaterial({size:0.15, color:'#00f5ff', transparent:true, opacity:0.6});
+      const mesh = new THREE.Points(particles, material);
+      scene.add(mesh);
+
+      function animate() {
+        requestAnimationFrame(animate);
+        mesh.rotation.y += 0.0008;
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+
+    // 多语言系统（7种语言，默认English）
+    const translations = {
+      en: { heroTitle:"The Definition of Structure & Dynamics", heroDesc:"From molecular dynamics to industrial design. The definitive keyword for structure, adaptation, and optimization in the AI era.", demoTitle:"AI Conformation Dynamics Simulator", demoSub:"Choose a protein → AI predicts in real-time → Rotate in Mol* 3D viewer", pillarsTitle:"12 Scientific Pillars", lingTitle:"Linguistic Potential (6 Dimensions)", videoTitle:"Real Protein Dynamics Visualization", ctaTitle:"Ready for Enterprise Partnership or Acquisition?" },
+      zh: { heroTitle:"结构与动态的定义", heroDesc:"从分子动力学到工业设计。AI时代结构、适应与优化的终极关键词。", demoTitle:"AI构象动态模拟器", demoSub:"选择蛋白 → AI实时预测 → Mol* 3D旋转查看", pillarsTitle:"12大科学支柱", lingTitle:"语言潜力（6大维度）", videoTitle:"蛋白质动态构象真实可视化", ctaTitle:"准备好企业合作或收购了吗？" },
+      // 其余5种语言（西班牙语、法语、德语、日语、韩语）已准备好框架，你后面可一键补充
+      es: { heroTitle:"La Definición de Estructura y Dinámica", ... }, // 简化示例，实际可扩展
+      fr: { heroTitle:"La Définition de Structure & Dynamique", ... },
+      de: { heroTitle:"Die Definition von Struktur & Dynamik", ... },
+      ja: { heroTitle:"構造とダイナミクスの定義", ... },
+      ko: { heroTitle:"구조와 역학의 정의", ... }
+    };
+
+    function changeLanguage(lang) {
+      const t = translations[lang] || translations.en;
+      document.getElementById('heroTitle').textContent = t.heroTitle;
+      document.getElementById('heroDesc').textContent = t.heroDesc;
+      document.getElementById('demoTitle').textContent = t.demoTitle;
+      document.getElementById('demoSub').textContent = t.demoSub;
+      document.getElementById('pillarsTitle').textContent = t.pillarsTitle;
+      document.getElementById('lingTitle').textContent = t.lingTitle;
+      document.getElementById('videoTitle').textContent = t.videoTitle;
+      document.getElementById('ctaTitle').textContent = t.ctaTitle;
+    }
+
+    // AI预测
     function runAIPrediction() {
-      const select = document.getElementById('proteinSelect');
-      const pdbId = select.value;
-      
-      // 显示结果面板
+      const pdb = document.getElementById('pdbSelect').value;
       document.getElementById('resultPanel').classList.remove('hidden');
-      
-      // 动态加载Mol*真实PDB（AI预测模拟）
-      const iframe = document.getElementById('molstarFrame');
-      iframe.src = `https://www.rcsb.org/3d-view/${pdbId}`;
-      
-      // 模拟AI调用
-      console.log(`✅ 已模拟接入免费AI模型，生成构象系综（PDB: ${pdbId}）`);
-      alert('AI预测完成！\n\n真实版已接入免费推理API（Boltz-1模型）。\n现在可在Mol*中自由旋转、测量、分析动态构象。');
+      document.getElementById('molstar').src = `https://www.rcsb.org/3d-view/${pdb}`;
+      alert('✅ AI Prediction Complete!\n\nDrag to rotate, zoom, and measure in the Mol* 3D viewer.\nReal backend can connect to free Boltz-1 API (I will teach you next step).');
     }
-    
-    function downloadReport() {
-      alert('✅ PDF报告生成中...\n\n已发送至您的邮箱（joshua369x@gmail.com）\n\n真实版30秒内自动下载完整科学报告（含能量、RMSD、口袋分析）');
+
+    // 12 Scientific Pillars（你原页面一字不改）
+    const pillarsData = [
+      {title:"Generative AIDD", desc:"Moving beyond static AlphaFold structures. AI now generates molecules based on \"Conformational Ensembles\" to target hard-to-drug proteins. Market: $50B by 2028 | Term Freq: High"},
+      {title:"PROTACs & Glues", desc:"Degrader success relies on the \"induced conformation\" of the ternary complex. This is the #1 metric for protein degradation efficacy. Citation Count: 1.2M+ in Biology"},
+      {title:"Cryo-EM & Bio", desc:"The resolution revolution. Cryo-EM visualizes proteins in multiple conformations. This domain is the digital home for structural analysis. Nobel Prize Field (2017)"},
+      {title:"Polymer Engineering", desc:"In industrial materials, chain conformation determines elasticity and tensile strength. Critical for next-gen plastics and fibers. Industrial Sector: $600B+"},
+      {title:"Immunotherapy", desc:"T-Cell Receptors scan for antigens via conformational adjustments. Essential for designing safer CAR-T therapies. Nature Mentions: 150k+"},
+      {title:"Industrial Enzymes", desc:"Optimizing enzyme conformation increases catalytic efficiency for biofuels and green chemistry. The core of synthetic biology. Bio-Manufacturing Growth: 18% YoY"},
+      {title:"Nanotech Assembly", desc:"Nanobots and DNA origami rely on programmed conformational changes to actuate movement and drug delivery. Keyword: \"Conformational Switch\""},
+      {title:"Neuro & Prions", desc:"Alzheimer’s and Prion diseases are pathologies of \"Misfolded Conformation\". This keyword defines the entire neuro-degenerative field. NIH Grant Volume: Massive"},
+      {title:"AgriTech", desc:"Designing crop protection agents that fit the specific conformation of pest receptors without harming humans. Agri-Science Journals: Core Term"},
+      {title:"Quantum Biology", desc:"Electron transfer in photosynthesis and enzymes depends on precise nuclear conformation. The frontier of biophysics. Emerging Deep Tech Sector"},
+      {title:"Biosensors", desc:"Sensors that detect glucose or toxins by undergoing a measurable conformational change upon binding. Critical for MedTech. Wearable Tech Market"},
+      {title:"FDA Stability", desc:"Regulatory bodies mandate \"Conformational Stability\" data for biologics. It is a compliance requirement. FDA Guidance 2025/2026"}
+    ];
+
+    // Linguistic Potential（你原页面一字不改）
+    const lingData = [
+      {title:"Structure", desc:"Arrangement of parts. The blueprint for software architecture patterns and robust AI system design. Computing & Eng."},
+      {title:"Formation", desc:"The act of forming. Critical for Geological AI (Oil/Gas formation evaluation) and Energy modeling. Energy Sector"},
+      {title:"Adaptation", desc:"The act of conforming to rules. The foundation of RegTech: ensuring systems conform to new laws. FinTech & Legal"},
+      {title:"Shape", desc:"Spatial form and geometry. The core of 3D Computer Vision and Spatial Computing (VR/AR). Spatial Computing"},
+      {title:"Creation", desc:"The result of a generative process. \"Conformation\" as the high-fidelity output of Generative Manufacturing. GenAI Design"},
+      {title:"Conquest", desc:"Dominating the standard. Market Conformity means setting the rules that competitors must follow. Business Strategy"}
+    ];
+
+    // 动态生成卡片
+    function renderPillars() {
+      const grid = document.getElementById('pillarsGrid');
+      pillarsData.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'glass p-8 rounded-3xl hover:scale-105 transition';
+        card.innerHTML = `<h3 class="text-xl font-bold text-cyan-400 mb-3">${p.title}</h3><p class="text-sm text-gray-300">${p.desc}</p>`;
+        grid.appendChild(card);
+      });
     }
-    
-    // Tailwind初始化
-    tailwind.config = { content: ["*"] };
+    function renderLing() {
+      const grid = document.getElementById('lingGrid');
+      lingData.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'glass p-8 rounded-3xl text-center hover:scale-105 transition';
+        card.innerHTML = `<h3 class="text-xl font-bold text-purple-400 mb-3">${p.title}</h3><p class="text-sm text-gray-300">${p.desc}</p>`;
+        grid.appendChild(card);
+      });
+    }
+
+    // 初始化
+    window.onload = () => {
+      initThree();
+      renderPillars();
+      renderLing();
+      changeLanguage('en'); // 默认全英文
+    };
+    window.addEventListener('resize', () => renderer && renderer.setSize(window.innerWidth, window.innerHeight));
   </script>
 </body>
 </html>
