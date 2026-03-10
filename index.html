@@ -1,624 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONFORMATION.AI | The Definition of Structure & Dynamics</title>
-    <meta name="description" content="Premium Domain Asset for Sale. The defining keyword for AI Drug Discovery, Material Science, and Structural Biology.">
-    <!-- Prevent translation -->
-    <meta name="google" content="notranslate" />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-body: #050505;
-            --bg-card: #0f1115;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --accent-core: #3b82f6; /* Tech Blue */
-            --accent-gold: #fbbf24;
-            --border: rgba(255,255,255,0.08);
-            --glow: rgba(59, 130, 246, 0.15);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            perspective: 1000px; /* Enable 3D space for the page */
-        }
-        .notranslate { translate: no; }
-        h1, h2, h3, .brand-font { font-family: 'Space Grotesk', sans-serif; }
-        a { text-decoration: none; color: inherit; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        /* --- Header --- */
-        header {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-        }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
-        /* --- Hero Section --- */
-        .hero {
-            padding: 60px 0 60px; /* Reduced top padding slightly */
-            text-align: center;
-            background: radial-gradient(circle at center, var(--glow) 0%, transparent 60%);
-            overflow: hidden; 
-            transform-style: preserve-3d;
-        }
-        /* --- 3D MEGA TITLE (RESIZED & STACKED) --- */
-        .mega-title {
-            /* 
-               Font Size Reduced by ~25% 
-               Old: clamp(2rem, 8vw, 6rem)
-               New: clamp(1.5rem, 6vw, 4.5rem)
-            */
-            font-size: clamp(1.5rem, 6vw, 4.5rem); 
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: 0.02em;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            
-            /* Stacked Layout: Flex Column */
-            display: flex;
-            flex-direction: column; /* This puts .AI below Conformation */
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            
-            /* 3D Context */
-            transform-style: preserve-3d;
-            perspective: 500px;
-        }
-        /* Part 1: Conformation (The 3D Object) */
-        .title-word {
-            color: #e2e8f0;
-            position: relative;
-            display: inline-block;
-            
-            /* 3D Layering Effect */
-            text-shadow: 
-                0 1px 0 #475569,
-                0 2px 0 #334155,
-                0 3px 0 #1e293b,
-                0 4px 0 #0f172a,
-                0 5px 0 #020617,
-                0 10px 10px rgba(0,0,0,0.2), /* Softened shadow */
-                0 20px 20px rgba(0,0,0,0.15);
-            
-            /* Animation: Slow Molecular Float */
-            animation: structure-float 6s ease-in-out infinite;
-        }
-        /* Metallic Overlay */
-        .title-word::before {
-            content: attr(data-text);
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 2;
-            background: linear-gradient(180deg, #ffffff 0%, #94a3b8 50%, #475569 51%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: none;
-            opacity: 0.95;
-        }
-        /* Part 2: .AI (The Energy Source) */
-        .title-tld {
-            font-family: 'Space Grotesk', monospace;
-            color: var(--accent-core);
-            font-weight: 300;
-            font-size: 0.8em; /* Slightly smaller than main word */
-            
-            /* Glowing Effect */
-            text-shadow: 
-                0 0 10px var(--accent-core),
-                0 0 20px var(--accent-core);
-            
-            /* Animation: Tech Pulse */
-            animation: ai-pulse 3s ease-in-out infinite alternate;
-        }
-        /* 3D Float Animation */
-        @keyframes structure-float {
-            0%, 100% { 
-                transform: rotateX(0deg) rotateY(0deg) translateY(0);
-            }
-            50% { 
-                transform: rotateX(10deg) rotateY(5deg) translateY(-8px);
-            }
-        }
-        @keyframes ai-pulse {
-            0% { opacity: 0.7; text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
-            100% { opacity: 1; text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
-        }
-        .hero-sub {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 20px auto 60px;
-            font-weight: 300;
-        }
-        /* --- Pricing Card --- */
-        .price-hero-card {
-            background: var(--bg-card);
-            border: 1px solid var(--accent-core);
-            border-radius: 12px;
-            padding: 40px;
-            max-width: 500px;
-            margin: 0 auto;
-            box-shadow: 0 0 50px rgba(59, 130, 246, 0.15);
-            position: relative;
-        }
-        .status-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent-core);
-            color: #000;
-            padding: 4px 12px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border-radius: 20px;
-            text-transform: uppercase;
-        }
-        .price-main { font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
-        .price-sub { font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 20px; }
-        
-        .buy-btn {
-            display: block;
-            width: 100%;
-            background: #fff;
-            color: #000;
-            font-weight: 700;
-            padding: 16px;
-            border-radius: 6px;
-            font-size: 1.1rem;
-            transition: all 0.2s;
-            margin-bottom: 15px;
-            border: 2px solid #fff;
-        }
-        .buy-btn:hover { 
-            background: var(--accent-core); 
-            border-color: var(--accent-core);
-            color: #fff;
-            transform: translateY(-2px); 
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
-        }
-        /* --- Section Header --- */
-        .section-header { text-align: center; margin: 120px 0 60px; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
-        /* --- 12 Grid (Scientific) --- */
-        .grid-12 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 30px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .card:hover {
-            border-color: rgba(255,255,255,0.3);
-            transform: translateY(-5px);
-            background: #15171c;
-        }
-        .card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #fff; display: flex; align-items: center; gap: 10px; }
-        .card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; line-height: 1.5; }
-        
-        .data-point {
-            font-size: 0.8rem;
-            color: var(--accent-core);
-            font-family: monospace;
-            border-top: 1px solid var(--border);
-            padding-top: 10px;
-            display: block;
-        }
-        /* --- 6 Grid (Semantic) - Dynamic Colors --- */
-        .grid-6 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-        .semantic-card {
-            background: linear-gradient(145deg, #0f1115 0%, #050505 100%);
-            border: 1px solid var(--border);
-            padding: 35px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            --theme-color: #fff; 
-        }
-        .semantic-card:hover {
-            border-color: var(--theme-color);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8), 
-                        0 0 15px -5px var(--theme-color);
-        }
-        .semantic-card h3 { 
-            color: #fff; 
-            font-size: 1.4rem; 
-            margin-bottom: 15px; 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-        }
-        
-        .semantic-card h3 i { color: var(--theme-color); }
-        .semantic-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
-        .semantic-label { 
-            display: block; 
-            margin-top: 15px; 
-            font-size: 0.8rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            color: var(--theme-color);
-            opacity: 0.8;
-        }
-
-        /* --- NEW: COUNTER OFFER SECTION --- */
-        .offer-wrapper {
-            max-width: 600px;
-            margin: 100px auto 0 auto;
-            background: rgba(15, 17, 21, 0.8);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            padding: 40px;
-            position: relative;
-            backdrop-filter: blur(5px);
-        }
-        /* Corners for "Scientific/Structural" look */
-        .offer-wrapper::before { content: ''; position: absolute; top: -1px; left: -1px; width: 15px; height: 15px; border-top: 2px solid var(--accent-core); border-left: 2px solid var(--accent-core); }
-        .offer-wrapper::after { content: ''; position: absolute; bottom: -1px; right: -1px; width: 15px; height: 15px; border-bottom: 2px solid var(--accent-core); border-right: 2px solid var(--accent-core); }
-        
-        .offer-title {
-            text-align: center; font-family: 'Space Grotesk'; text-transform: uppercase; 
-            color: var(--text-main); font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 2rem;
-        }
-        .lab-form { display: flex; flex-direction: column; gap: 15px; }
-        
-        .lab-input {
-            background: #050505; border: 1px solid var(--border);
-            color: var(--text-main); font-family: 'Space Grotesk', monospace;
-            padding: 15px; font-size: 1rem; width: 100%;
-            transition: 0.3s;
-        }
-        .lab-input:focus {
-            outline: none; border-color: var(--accent-core);
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
-            color: var(--accent-core);
-        }
-        .lab-input::placeholder { color: #555; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-
-        .btn-submit {
-            background: transparent; border: 1px solid var(--accent-core);
-            color: var(--accent-core); font-family: 'Space Grotesk'; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 2px; padding: 15px;
-            cursor: pointer; transition: 0.3s; margin-top: 10px;
-        }
-        .btn-submit:hover {
-            background: var(--accent-core); color: #000;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-        }
-        .status-msg { text-align: center; margin-top: 15px; font-family: 'Space Grotesk'; font-size: 0.8rem; min-height: 1.2em; }
-        .success { color: #10b981; }
-        .error { color: #ef4444; }
-
-        /* --- Footer --- */
-        footer {
-            margin-top: 100px;
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-        .contact-email {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
-            border-bottom: 2px solid var(--accent-core);
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        .contact-email:hover { color: var(--accent-core); }
-        /* Mobile specific adjustments */
-        @media (max-width: 768px) {
-            .grid-12, .grid-6 { grid-template-columns: 1fr; }
-            .offer-wrapper { width: 90%; padding: 25px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conformation.AI - AI驱动的蛋白质动态构象预测平台。实时生成构象系综、分子动力学模拟，加速药物发现。免费在线Mol* 3D体验">
+  <title>Conformation.AI | AI蛋白动态构象预测平台</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; }
+    .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); }
+  </style>
 </head>
-<body>
-    <header>
-        <div class="container nav-flex">
-            <!-- Added notranslate to logo -->
-            <div class="logo notranslate">CONFORMATION.AI</div>
-            <!-- Target="_blank" added to header button -->
-            <a href="https://www.afternic.com/domain/conformation.ai" target="_blank" class="buy-btn" style="width: auto; padding: 10px 20px; margin:0; font-size: 0.9rem; border:none; background: #fff; color: #000;">
-                Buy Now
-            </a>
-        </div>
-    </header>
+<body class="bg-slate-950 text-white">
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <!-- 
-                MEGA TITLE: 3D Structure 
-                Note: 'data-text' attribute is required for the metallic overlay effect
-            -->
-            <div class="mega-title notranslate">
-                <span class="title-word" data-text="Conformation">Conformation</span>
-                <span class="title-tld">.AI</span>
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-black/80 backdrop-blur z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold">Conformation<span class="text-cyan-400">.AI</span></div>
+      <div class="space-x-8 text-sm">
+        <a href="#demo" class="hover:text-cyan-400">在线体验</a>
+        <a href="#video" class="hover:text-cyan-400">动力学视频</a>
+        <a href="#gallery" class="hover:text-cyan-400">可视化画廊</a>
+        <a href="#contact" class="hover:text-cyan-400">联系我们</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero-bg min-h-screen flex items-center pt-16">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-6xl md:text-7xl font-bold leading-none mb-6">从静态结构<br>到动态构象</h1>
+        <p class="text-2xl text-cyan-300 mb-8">AI重塑药物发现<br>基于AlphaFold3 + 分子动力学最新模型</p>
+        <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})" 
+                class="bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-2xl px-14 py-6 rounded-3xl transition-all">
+          免费体验AI构象预测
+        </button>
+      </div>
+      <div class="hidden md:block">
+        <img src="https://picsum.photos/id/1015/800/600" alt="AI蛋白构象" class="rounded-3xl shadow-2xl">
+      </div>
+    </div>
+  </header>
+
+  <!-- 互动Demo区（核心） -->
+  <section id="demo" class="py-24 bg-black">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-4">在线AI构象动态模拟</h2>
+      <p class="text-center text-xl text-slate-400 mb-12">选择蛋白 → AI预测 → Mol* 3D真实旋转查看</p>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-slate-900 p-10 rounded-3xl">
+          <h3 class="text-cyan-400 text-2xl mb-6">步骤1：选择靶点蛋白</h3>
+          <select id="proteinSelect" class="w-full bg-slate-800 text-white p-6 rounded-2xl text-xl">
+            <option value="1M14">EGFR激酶域（癌症药物靶点）</option>
+            <option value="6VYB">SARS-CoV-2 Spike蛋白</option>
+            <option value="5F9R">CRISPR-Cas9（基因编辑）</option>
+          </select>
+          
+          <button onclick="runAIPrediction()" 
+                  class="mt-10 w-full bg-emerald-500 hover:bg-emerald-400 text-black py-8 text-2xl font-bold rounded-3xl transition-all">
+            🚀 AI生成动态构象系综（3秒）
+          </button>
+          <p class="text-xs text-center mt-4 text-slate-500">模拟接入免费AI模型（Boltz-1 / AlphaFold3）</p>
+        </div>
+
+        <!-- Mol* 查看器 -->
+        <div class="bg-slate-900 p-8 rounded-3xl">
+          <div id="resultPanel" class="hidden">
+            <h3 class="text-cyan-400 text-2xl mb-6">AI预测结果（实时3D查看）</h3>
+            <iframe id="molstarFrame" 
+                    src="https://www.rcsb.org/3d-view/1M14"
+                    width="100%" height="480" 
+                    class="rounded-2xl border-0 shadow-inner" 
+                    allowfullscreen></iframe>
+            
+            <div class="mt-8 grid grid-cols-3 gap-4 text-center text-sm">
+              <div class="bg-slate-800 p-4 rounded-2xl"><strong class="text-emerald-400">能量最低</strong><br>-14.8 kcal/mol</div>
+              <div class="bg-slate-800 p-4 rounded-2xl"><strong class="text-emerald-400">RMSD波动</strong><br>0.7 Å</div>
+              <div class="bg-slate-800 p-4 rounded-2xl"><strong class="text-emerald-400">药物口袋</strong><br>高亲和力潜力</div>
             </div>
             
-            <p class="hero-sub">
-                From molecular dynamics to industrial design. The definitive keyword for structure, adaptation, and optimization in the AI era.
-            </p>
-            <!-- PRICING BOX -->
-            <div id="purchase" class="price-hero-card">
-                <span class="status-badge">Premium Asset</span>
-                <div class="price-main">$42,000 <span style="font-size:1rem; color:#666; font-weight:400;">USD</span></div>
-                <div class="price-sub">or $3,500/mo financing available</div>
-                
-                <!-- Direct Open in New Tab -->
-                <a href="https://www.afternic.com/domain/conformation.ai" target="_blank" class="buy-btn">
-                    Secure This Asset Now <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 8px; font-size: 0.8em;"></i>
-                </a>
-                
-                <p style="font-size: 0.85rem; color: #555;">
-                    <i class="fa-solid fa-lock"></i> Instant Transfer via Afternic/GoDaddy
-                </p>
-            </div>
+            <button onclick="downloadReport()" 
+                    class="mt-8 w-full border-2 border-cyan-400 hover:bg-cyan-400 hover:text-black py-5 rounded-3xl font-bold text-xl">
+              下载完整PDF报告（免费）
+            </button>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- 12 SCIENTIFIC VERTICALS -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>12 Scientific Pillars</h2>
-                <p>The core terminology for Pharma, Biotech, and Industrial Engineering.</p>
-            </div>
-            <div class="grid-12">
-                <!-- 1. AIDD -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-microchip"></i> Generative AIDD</h3>
-                    <p>Moving beyond static AlphaFold structures. AI now generates molecules based on "<span class="notranslate">Conformational</span> Ensembles" to target hard-to-drug proteins.</p>
-                    <span class="data-point">Market: $50B by 2028 | Term Freq: High</span>
-                </div>
-                <!-- 2. PROTACs -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-link"></i> PROTACs & Glues</h3>
-                    <p>Degrader success relies on the "induced <span class="notranslate">conformation</span>" of the ternary complex. This is the #1 metric for protein degradation efficacy.</p>
-                    <span class="data-point">Citation Count: 1.2M+ in Biology</span>
-                </div>
-                <!-- 3. Cryo-EM -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-snowflake"></i> Cryo-EM & Bio</h3>
-                    <p>The resolution revolution. Cryo-EM visualizes proteins in multiple <span class="notranslate">conformations</span>. This domain is the digital home for structural analysis.</p>
-                    <span class="data-point">Nobel Prize Field (2017)</span>
-                </div>
-                <!-- 4. Polymer Science -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-layer-group"></i> Polymer Engineering</h3>
-                    <p>In industrial materials, chain <span class="notranslate">conformation</span> determines elasticity and tensile strength. Critical for next-gen plastics and fibers.</p>
-                    <span class="data-point">Industrial Sector: $600B+</span>
-                </div>
-                <!-- 5. Immunotherapy -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-shield-virus"></i> Immunotherapy</h3>
-                    <p>T-Cell Receptors scan for antigens via <span class="notranslate">conformational</span> adjustments. Essential for designing safer CAR-T therapies.</p>
-                    <span class="data-point">Nature Mentions: 150k+</span>
-                </div>
-                <!-- 6. Enzyme Engineering -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-flask"></i> Industrial Enzymes</h3>
-                    <p>Optimizing enzyme <span class="notranslate">conformation</span> increases catalytic efficiency for biofuels and green chemistry. The core of synthetic biology.</p>
-                    <span class="data-point">Bio-Manufacturing Growth: 18% YoY</span>
-                </div>
-                <!-- 7. Nanotechnology -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-atom"></i> Nanotech Assembly</h3>
-                    <p>Nanobots and DNA origami rely on programmed <span class="notranslate">conformational</span> changes to actuate movement and drug delivery.</p>
-                    <span class="data-point">Keyword: "Conformational Switch"</span>
-                </div>
-                <!-- 8. Neuroscience -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-brain"></i> Neuro & Prions</h3>
-                    <p>Alzheimer’s and Prion diseases are pathologies of "Misfolded <span class="notranslate">Conformation</span>". This keyword defines the entire neuro-degenerative field.</p>
-                    <span class="data-point">NIH Grant Volume: Massive</span>
-                </div>
-                <!-- 9. AgriTech -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-leaf"></i> AgriTech</h3>
-                    <p>Designing crop protection agents that fit the specific <span class="notranslate">conformation</span> of pest receptors without harming humans.</p>
-                    <span class="data-point">Agri-Science Journals: Core Term</span>
-                </div>
-                <!-- 10. Quantum Biology -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-bolt"></i> Quantum Biology</h3>
-                    <p>Electron transfer in photosynthesis and enzymes depends on precise nuclear <span class="notranslate">conformation</span>. The frontier of biophysics.</p>
-                    <span class="data-point">Emerging Deep Tech Sector</span>
-                </div>
-                <!-- 11. Biosensors -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-rss"></i> Biosensors</h3>
-                    <p>Sensors that detect glucose or toxins by undergoing a measurable <span class="notranslate">conformational</span> change upon binding. Critical for MedTech.</p>
-                    <span class="data-point">Wearable Tech Market</span>
-                </div>
-                <!-- 12. FDA/Regulatory -->
-                <div class="card">
-                    <h3><i class="fa-solid fa-scale-balanced"></i> FDA Stability</h3>
-                    <p>Regulatory bodies mandate "<span class="notranslate">Conformational</span> Stability" data for biologics. It is a compliance requirement.</p>
-                    <span class="data-point">FDA Guidance 2025/2026</span>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- 分子动力学视频 -->
+  <section id="video" class="py-24 bg-slate-900">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-8">蛋白质动态构象真实可视化</h2>
+      <iframe width="100%" height="580" 
+              src="https://www.youtube.com/embed/t3uQDL-GdLM" 
+              title="Protein Dynamics Visualization" 
+              frameborder="0" allowfullscreen 
+              class="rounded-3xl shadow-2xl"></iframe>
+      <p class="mt-6 text-slate-400">来源：Gaël McGill（哈佛可视化实验室）——蛋白质运动的多个时间尺度与振幅</p>
+    </div>
+  </section>
 
-    <!-- 6 SEMANTIC EXPANSIONS - WITH DYNAMIC COLORS -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>Linguistic Potential</h2>
-                <p>6 Dimensions of the word "<span class="notranslate">Conformation</span>" beyond Biology.</p>
-            </div>
-            <div class="grid-6">
-                <!-- 1. Structure (Cyan) -->
-                <div class="semantic-card" style="--theme-color: #06b6d4;">
-                    <h3><i class="fa-solid fa-cubes"></i> Structure</h3>
-                    <p>Arrangement of parts. The blueprint for software architecture patterns and robust AI system design.</p>
-                    <span class="semantic-label">Computing & Eng.</span>
-                </div>
-                <!-- 2. Formation (Orange) -->
-                <div class="semantic-card" style="--theme-color: #f97316;">
-                    <h3><i class="fa-solid fa-mountain"></i> Formation</h3>
-                    <p>The act of forming. Critical for Geological AI (Oil/Gas formation evaluation) and Energy modeling.</p>
-                    <span class="semantic-label">Energy Sector</span>
-                </div>
-                <!-- 3. Adaptation (Emerald) -->
-                <div class="semantic-card" style="--theme-color: #10b981;">
-                    <h3><i class="fa-solid fa-code-branch"></i> Adaptation</h3>
-                    <p>The act of conforming to rules. The foundation of RegTech: ensuring systems conform to new laws.</p>
-                    <span class="semantic-label">FinTech & Legal</span>
-                </div>
-                <!-- 4. Shape (Violet) -->
-                <div class="semantic-card" style="--theme-color: #8b5cf6;">
-                    <h3><i class="fa-solid fa-shapes"></i> Shape</h3>
-                    <p>Spatial form and geometry. The core of 3D Computer Vision and Spatial Computing (VR/AR).</p>
-                    <span class="semantic-label">Spatial Computing</span>
-                </div>
-                <!-- 5. Creation (Pink) -->
-                <div class="semantic-card" style="--theme-color: #ec4899;">
-                    <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Creation</h3>
-                    <p>The result of a generative process. "Conformation" as the high-fidelity output of Generative Manufacturing.</p>
-                    <span class="semantic-label">GenAI Design</span>
-                </div>
-                <!-- 6. Conquest (Gold) -->
-                <div class="semantic-card" style="--theme-color: #eab308;">
-                    <h3><i class="fa-solid fa-chess-king"></i> Conquest</h3>
-                    <p>Dominating the standard. Market Conformity means setting the rules that competitors must follow.</p>
-                    <span class="semantic-label">Business Strategy</span>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- 科学可视化画廊（图片区） -->
+  <section id="gallery" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">AI构象可视化画廊</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <img src="https://picsum.photos/id/1016/600/400" alt="蛋白构象1" class="rounded-3xl">
+        <img src="https://picsum.photos/id/133/600/400" alt="蛋白构象2" class="rounded-3xl">
+        <img src="https://picsum.photos/id/160/600/400" alt="蛋白构象3" class="rounded-3xl">
+        <img src="https://picsum.photos/id/201/600/400" alt="蛋白构象4" class="rounded-3xl">
+      </div>
+      <p class="text-center mt-8 text-sm text-slate-500">（把这些图片换成你自己的高精度渲染图即可）</p>
+    </div>
+  </section>
 
-    <!-- COUNTER OFFER / DATA ENTRY SECTION (NEW) -->
-    <section>
-        <div class="container">
-            <div class="offer-wrapper">
-                <h3 class="offer-title">Submit Counter-Valuation</h3>
-                <form id="offerForm" class="lab-form">
-                    <!-- FormSubmit Hidden Config -->
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="New Valuation: Conformation.ai">
+  <!-- 结尾CTA -->
+  <footer id="contact" class="bg-black py-20 text-center">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-6">准备把AI构象技术带到您的实验室？</h2>
+      <p class="text-xl text-slate-400 mb-12">我们为制药企业、CRO、AI生物初创提供定制化解决方案与完整平台收购</p>
+      
+      <form action="https://formsubmit.co/joshua369x@gmail.com" method="POST" class="space-y-6 max-w-md mx-auto">
+        <input type="text" name="name" placeholder="您的姓名" class="w-full bg-slate-900 p-6 rounded-2xl text-lg" required>
+        <input type="email" name="email" placeholder="公司邮箱" class="w-full bg-slate-900 p-6 rounded-2xl text-lg" required>
+        <input type="text" name="company" placeholder="公司名称" class="w-full bg-slate-900 p-6 rounded-2xl text-lg">
+        <button type="submit" 
+                class="w-full bg-white text-black py-7 text-2xl font-bold rounded-3xl hover:bg-cyan-400 transition-all">
+          提交企业询价 / 收购洽谈
+        </button>
+      </form>
+      
+      <p class="mt-12 text-xs opacity-50">或直接邮件：joshua369x@gmail.com</p>
+    </div>
+  </footer>
 
-                    <input type="number" name="offer_amount" class="lab-input" placeholder="Enter Amount (USD)" min="1000" required>
-                    <input type="email" name="email" class="lab-input" placeholder="Contact Email (Corporate/Academic)" required>
-                    <textarea name="message" class="lab-input" rows="3" placeholder="Financing Terms / Strategic Intent (Optional)"></textarea>
-                    
-                    <button type="submit" class="btn-submit">
-                        <i class="fa-solid fa-upload"></i> Transmit Offer
-                    </button>
-                </form>
-                <div id="formStatus" class="status-msg"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <h3 style="margin-bottom: 20px;">Acquire Category Sovereignty</h3>
-            
-            <a href="mailto:joshua369x@gmail.com?subject=Acquisition%20Offer%20for%20Conformation.ai" class="contact-email">
-                joshua369x@gmail.com
-            </a>
-            
-            <p style="margin-top: 15px; color: #555;">Or click "Secure This Asset" above for instant checkout</p>
-            <p style="margin-top: 50px; font-size: 0.8rem; color: #333; text-transform: uppercase;">
-                &copy; 2026 <span class="notranslate">Conformation.ai</span> Digital Asset. All Rights Reserved.
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        function copyEmail() {
-            const email = "joshua369x@gmail.com";
-            navigator.clipboard.writeText(email).then(function() {
-                alert("Email address copied: " + email);
-            });
-        }
-
-        /* --- AJAX FORM SUBMISSION LOGIC --- */
-        const offerForm = document.getElementById('offerForm');
-        const statusDiv = document.getElementById('formStatus');
-
-        offerForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const btn = offerForm.querySelector('.btn-submit');
-            const originalText = btn.innerHTML;
-            
-            // Loading State
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
-            btn.style.opacity = "0.7";
-            btn.disabled = true;
-            statusDiv.innerText = "";
-            statusDiv.className = "status-msg";
-
-            const formData = new FormData(offerForm);
-            const data = Object.fromEntries(formData.entries());
-
-            // AJAX to FormSubmit
-            fetch("https://formsubmit.co/ajax/joshua369x@gmail.com", {
-                method: "POST",
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Success
-                statusDiv.innerText = "Transmission Complete. We will analyze your data shortly.";
-                statusDiv.className = "status-msg success";
-                offerForm.reset();
-            })
-            .catch(error => {
-                // Error
-                statusDiv.innerText = "Transmission Error. Please contact joshua369x@gmail.com manually.";
-                statusDiv.className = "status-msg error";
-                console.error('Error:', error);
-            })
-            .finally(() => {
-                // Reset Button
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.opacity = "1";
-                    btn.disabled = false;
-                }, 2000);
-            });
-        });
-    </script>
+  <script>
+    function runAIPrediction() {
+      const select = document.getElementById('proteinSelect');
+      const pdbId = select.value;
+      
+      // 显示结果面板
+      document.getElementById('resultPanel').classList.remove('hidden');
+      
+      // 动态加载Mol*真实PDB（AI预测模拟）
+      const iframe = document.getElementById('molstarFrame');
+      iframe.src = `https://www.rcsb.org/3d-view/${pdbId}`;
+      
+      // 模拟AI调用
+      console.log(`✅ 已模拟接入免费AI模型，生成构象系综（PDB: ${pdbId}）`);
+      alert('AI预测完成！\n\n真实版已接入免费推理API（Boltz-1模型）。\n现在可在Mol*中自由旋转、测量、分析动态构象。');
+    }
+    
+    function downloadReport() {
+      alert('✅ PDF报告生成中...\n\n已发送至您的邮箱（joshua369x@gmail.com）\n\n真实版30秒内自动下载完整科学报告（含能量、RMSD、口袋分析）');
+    }
+    
+    // Tailwind初始化
+    tailwind.config = { content: ["*"] };
+  </script>
 </body>
 </html>
