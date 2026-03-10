@@ -15,61 +15,58 @@
 </head>
 <body class="bg-[#0a0a0a] text-white min-h-screen relative">
 
-  <!-- Three.js Futuristic Background -->
+  <!-- Three.js Background -->
   <canvas id="threeCanvas" class="fixed inset-0 z-0 opacity-75"></canvas>
 
   <!-- Navbar -->
   <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-      <div class="text-4xl font-bold tracking-tighter neon-cyan">Conformation<span class="text-[#00f5ff]">.AI</span></div>
-      <div class="flex items-center gap-10 text-sm font-medium">
-        <a href="#demo" class="hover:text-cyan-400 transition">AI Demo</a>
-        <a href="#pillars" class="hover:text-cyan-400 transition">12 Scientific Pillars</a>
-        <a href="#linguistic" class="hover:text-cyan-400 transition">Linguistic Potential</a>
-        <a href="#future" class="hover:text-cyan-400 transition">Future Vision</a>
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-sm">
+      <div class="text-3xl font-bold tracking-tighter neon-cyan">Conformation<span class="text-[#00f5ff]">.AI</span></div>
+      <div class="flex gap-6 font-medium">
+        <a href="#demo" class="hover:text-cyan-400">AI Demo</a>
+        <a href="#pillars" class="hover:text-cyan-400">12 Pillars</a>
+        <a href="#linguistic" class="hover:text-cyan-400">Linguistic</a>
+        <a href="#future" class="hover:text-cyan-400">Future</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <header class="min-h-screen flex items-center relative z-10 pt-20">
-    <div class="max-w-6xl mx-auto px-8 text-center">
-      <h1 class="text-7xl md:text-[5.5rem] font-black tracking-tighter neon-cyan mb-8">The Definition of Structure & Dynamics</h1>
-      <p class="text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto">From static AlphaFold structures to dynamic conformational ensembles — the ultimate AI keyword powering the next decade of drug discovery.</p>
+  <header class="min-h-screen flex items-center relative z-10 pt-16 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-black tracking-tighter neon-cyan mb-6">The Definition of Structure & Dynamics</h1>
+      <p class="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto">From static AlphaFold structures to dynamic conformational ensembles — the ultimate AI keyword powering the next decade of drug discovery.</p>
       <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})" 
-              class="mt-16 bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-cyan-300 hover:to-purple-400 text-black font-bold text-2xl px-20 py-7 rounded-3xl transition-all shadow-2xl">
+              class="mt-12 w-full max-w-xs mx-auto bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-cyan-300 hover:to-purple-400 text-black font-bold text-xl md:text-2xl px-10 py-6 rounded-3xl transition-all">
         Experience AI Conformation Prediction
       </button>
     </div>
   </header>
 
   <!-- AI Demo -->
-  <section id="demo" class="py-32 bg-black/70 relative z-10">
-    <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-5xl font-bold text-center mb-6">AI Conformation Predictor</h2>
-      <p class="text-center text-xl text-gray-400 mb-12">Select a protein target → Run AI simulation → Explore real 3D dynamics in Mol*</p>
+  <section id="demo" class="py-20 md:py-32 bg-black/70 relative z-10 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">AI Conformation Predictor</h2>
+      <p class="text-center text-lg text-gray-400 mb-10">Select target → Run AI → Explore 3D dynamics</p>
       
-      <div class="grid md:grid-cols-2 gap-12">
-        <div class="glass p-10 rounded-3xl">
-          <select id="pdbSelect" class="w-full bg-black/60 border border-cyan-400/30 rounded-2xl p-6 text-lg focus:border-cyan-400">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass p-8 rounded-3xl">
+          <select id="pdbSelect" class="w-full bg-black/60 border border-cyan-400/30 rounded-2xl p-5 text-base focus:border-cyan-400">
             <option value="1M14">EGFR Kinase Domain (Cancer)</option>
             <option value="6VYB">SARS-CoV-2 Spike Protein</option>
             <option value="5F9R">CRISPR-Cas9</option>
             <option value="7KRR">BRD4 Bromodomain</option>
             <option value="6LZG">ACE2 Receptor</option>
           </select>
-          <button onclick="runAIPrediction()" 
-                  class="mt-10 w-full bg-gradient-to-r from-emerald-400 to-cyan-400 text-black py-8 text-2xl font-bold rounded-3xl hover:scale-105 transition">
-            🚀 Run AI Prediction (2 seconds)
-          </button>
+          <button onclick="runAIPrediction()" class="mt-8 w-full bg-gradient-to-r from-emerald-400 to-cyan-400 text-black py-7 text-xl font-bold rounded-3xl hover:scale-105 transition">🚀 Run AI Prediction (2s)</button>
         </div>
 
-        <div id="resultPanel" class="hidden glass p-8 rounded-3xl">
-          <iframe id="molstar" src="https://www.rcsb.org/3d-view/1M14" width="100%" height="520" class="rounded-2xl border-0"></iframe>
-          <div class="mt-6 grid grid-cols-3 gap-4 text-center text-sm">
-            <div class="bg-slate-900/80 p-5 rounded-2xl">RMSD: <span class="text-emerald-400 font-bold">0.68 Å</span></div>
-            <div class="bg-slate-900/80 p-5 rounded-2xl">ΔG: <span class="text-emerald-400 font-bold">-15.2 kcal/mol</span></div>
-            <div class="bg-slate-900/80 p-5 rounded-2xl">Druggability: <span class="text-emerald-400 font-bold">High</span></div>
+        <div id="resultPanel" class="hidden glass p-6 md:p-8 rounded-3xl">
+          <iframe id="molstar" src="https://www.rcsb.org/3d-view/1M14" width="100%" height="380" class="rounded-2xl border-0"></iframe>
+          <div class="mt-6 grid grid-cols-3 gap-3 text-xs md:text-sm text-center">
+            <div class="bg-slate-900/80 p-4 rounded-2xl">RMSD: <span class="text-emerald-400 font-bold">0.68 Å</span></div>
+            <div class="bg-slate-900/80 p-4 rounded-2xl">ΔG: <span class="text-emerald-400 font-bold">-15.2</span></div>
+            <div class="bg-slate-900/80 p-4 rounded-2xl">Druggability: <span class="text-emerald-400 font-bold">High</span></div>
           </div>
         </div>
       </div>
@@ -77,46 +74,45 @@
   </section>
 
   <!-- 12 Scientific Pillars -->
-  <section id="pillars" class="py-32 relative z-10">
-    <div class="max-w-7xl mx-auto px-8">
-      <h2 class="text-5xl font-bold text-center mb-16">12 Scientific Pillars</h2>
-      <div class="grid md:grid-cols-3 gap-8" id="pillarsGrid"></div>
+  <section id="pillars" class="py-20 md:py-32 relative z-10 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">12 Scientific Pillars</h2>
+      <div class="grid md:grid-cols-3 gap-6" id="pillarsGrid"></div>
     </div>
   </section>
 
   <!-- Linguistic Potential -->
-  <section id="linguistic" class="py-32 bg-black/70 relative z-10">
-    <div class="max-w-7xl mx-auto px-8">
-      <h2 class="text-5xl font-bold text-center mb-16">Linguistic Potential (6 Dimensions)</h2>
-      <div class="grid md:grid-cols-3 gap-8" id="lingGrid"></div>
+  <section id="linguistic" class="py-20 md:py-32 bg-black/70 relative z-10 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">Linguistic Potential (6 Dimensions)</h2>
+      <div class="grid md:grid-cols-3 gap-6" id="lingGrid"></div>
     </div>
   </section>
 
   <!-- Future Vision -->
-  <section id="future" class="py-32 relative z-10">
-    <div class="max-w-5xl mx-auto px-8 text-center">
-      <h2 class="text-5xl font-bold mb-10">Future Vision 2024–2035</h2>
-      <iframe width="100%" height="640" src="https://www.youtube.com/embed/t3uQDL-GdLM" frameborder="0" allowfullscreen class="rounded-3xl shadow-2xl"></iframe>
+  <section id="future" class="py-20 md:py-32 relative z-10 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-8">Future Vision 2024–2035</h2>
+      <iframe width="100%" height="420" src="https://www.youtube.com/embed/t3uQDL-GdLM" frameborder="0" allowfullscreen class="rounded-3xl shadow-2xl"></iframe>
     </div>
   </section>
 
   <!-- Enterprise Inquiry -->
-  <footer class="py-32 bg-gradient-to-b from-black to-[#0a0a0a] relative z-10">
-    <div class="max-w-2xl mx-auto px-8 text-center">
-      <h2 class="text-5xl font-bold mb-8">Ready for Enterprise Partnership or Acquisition?</h2>
-      <p class="text-xl text-gray-400 mb-10">Submit your inquiry — we respond within 24 hours</p>
+  <footer class="py-20 md:py-32 bg-gradient-to-b from-black to-[#0a0a0a] relative z-10 px-6">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready for Enterprise Partnership or Acquisition?</h2>
+      <p class="text-lg text-gray-400 mb-8">Submit your inquiry — we respond within 24 hours</p>
       <form action="https://formsubmit.co/joshua369x@gmail.com" method="POST" class="space-y-6">
         <input type="text" name="name" placeholder="Your Full Name" class="w-full glass p-6 rounded-3xl text-lg" required>
         <input type="email" name="email" placeholder="Company Email Address" class="w-full glass p-6 rounded-3xl text-lg" required>
         <input type="text" name="company" placeholder="Company / Institution" class="w-full glass p-6 rounded-3xl text-lg">
-        <button type="submit" class="w-full bg-white text-black py-8 text-2xl font-bold rounded-3xl hover:bg-cyan-400 transition">Submit Inquiry</button>
+        <button type="submit" class="w-full bg-white text-black py-7 text-xl font-bold rounded-3xl hover:bg-cyan-400 transition">Submit Inquiry</button>
       </form>
-      <p class="mt-12 text-sm text-gray-500">Direct email: joshua369x@gmail.com</p>
+      <p class="mt-10 text-sm text-gray-500">Direct email: joshua369x@gmail.com</p>
     </div>
   </footer>
 
   <script>
-    // Three.js Futuristic Background
     let scene, camera, renderer, helix;
     function initThree() {
       const canvas = document.getElementById('threeCanvas');
@@ -124,7 +120,7 @@
       camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
       renderer = new THREE.WebGLRenderer({canvas, alpha: true});
       renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.position.z = 40;
+      camera.position.z = window.innerWidth < 768 ? 55 : 40;
 
       const particles = new THREE.BufferGeometry();
       const count = 1800;
@@ -148,7 +144,6 @@
       animate();
     }
 
-    // 12 Scientific Pillars
     const pillarsData = [
       {title:"Generative AIDD", desc:"Moving beyond static AlphaFold. AI now generates molecules using full conformational ensembles."},
       {title:"PROTACs & Molecular Glues", desc:"Success depends on induced conformation of the ternary complex — the #1 metric in degradation."},
@@ -201,7 +196,13 @@
       initThree();
       renderCards();
     };
-    window.addEventListener('resize', () => { if(renderer) renderer.setSize(window.innerWidth, window.innerHeight); });
+    window.addEventListener('resize', () => {
+      if(renderer) {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      }
+    });
   </script>
 </body>
 </html>
