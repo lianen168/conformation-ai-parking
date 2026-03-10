@@ -18,15 +18,15 @@
   <!-- Three.js Background -->
   <canvas id="threeCanvas" class="fixed inset-0 z-0 opacity-75"></canvas>
 
-  <!-- Navbar -->
+  <!-- Navbar（已优化手机版） -->
   <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-xs md:text-sm">
       <div class="text-3xl font-bold tracking-tighter neon-cyan">Conformation<span class="text-[#00f5ff]">.AI</span></div>
-      <div class="flex gap-6 font-medium">
-        <a href="#demo" class="hover:text-cyan-400">AI Demo</a>
-        <a href="#pillars" class="hover:text-cyan-400">12 Pillars</a>
-        <a href="#linguistic" class="hover:text-cyan-400">Linguistic</a>
-        <a href="#future" class="hover:text-cyan-400">Future</a>
+      <div class="flex items-center gap-3 md:gap-8 font-medium">
+        <a href="#demo" class="hover:text-cyan-400 whitespace-nowrap">Demo</a>
+        <a href="#pillars" class="hover:text-cyan-400 whitespace-nowrap">Pillars</a>
+        <a href="#linguistic" class="hover:text-cyan-400 whitespace-nowrap">Linguistic</a>
+        <a href="#future" class="hover:text-cyan-400 whitespace-nowrap">Vision</a>
       </div>
     </div>
   </nav>
@@ -48,7 +48,6 @@
     <div class="max-w-6xl mx-auto">
       <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">AI Conformation Predictor</h2>
       <p class="text-center text-lg text-gray-400 mb-10">Select target → Run AI → Explore 3D dynamics</p>
-      
       <div class="grid md:grid-cols-2 gap-8">
         <div class="glass p-8 rounded-3xl">
           <select id="pdbSelect" class="w-full bg-black/60 border border-cyan-400/30 rounded-2xl p-5 text-base focus:border-cyan-400">
@@ -60,7 +59,6 @@
           </select>
           <button onclick="runAIPrediction()" class="mt-8 w-full bg-gradient-to-r from-emerald-400 to-cyan-400 text-black py-7 text-xl font-bold rounded-3xl hover:scale-105 transition">🚀 Run AI Prediction (2s)</button>
         </div>
-
         <div id="resultPanel" class="hidden glass p-6 md:p-8 rounded-3xl">
           <iframe id="molstar" src="https://www.rcsb.org/3d-view/1M14" width="100%" height="380" class="rounded-2xl border-0"></iframe>
           <div class="mt-6 grid grid-cols-3 gap-3 text-xs md:text-sm text-center">
