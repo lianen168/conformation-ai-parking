@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" translate="no">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google" content="notranslate">
-  <meta http-equiv="Content-Language" content="en">
   <meta name="description" content="Conformation.AI — The Definition of Structure & Dynamics in the AI Era. AI-powered protein conformation dynamics platform for next-generation drug discovery.">
-  <title translate="no">Conformation.AI | The Definition of Structure & Dynamics</title>
+  <title>Conformation.AI | The Definition of Structure & Dynamics</title>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JL1NEVXLMD"></script>
@@ -29,7 +27,7 @@
     .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.12); }
   </style>
 </head>
-<body translate="no" class="bg-[#0a0a0a] text-white min-h-screen relative">
+<body class="bg-[#0a0a0a] text-white min-h-screen relative">
 
   <!-- Three.js Background -->
   <canvas id="threeCanvas" class="fixed inset-0 z-0 opacity-75"></canvas>
@@ -37,7 +35,7 @@
   <!-- Navbar -->
   <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-xs md:text-sm">
-      <div translate="no" class="text-3xl font-bold tracking-tighter neon-cyan">Conformation<span class="text-[#00f5ff]">.AI</span></div>
+      <div class="text-3xl font-bold tracking-tighter neon-cyan">Conformation<span class="text-[#00f5ff]">.AI</span></div>
       <div class="flex items-center gap-3 md:gap-8 font-medium">
         <a href="#demo" class="hover:text-cyan-400 whitespace-nowrap">Demo</a>
         <a href="#pillars" class="hover:text-cyan-400 whitespace-nowrap">Pillars</a>
@@ -50,7 +48,7 @@
   <!-- Hero -->
   <header class="min-h-screen flex items-center relative z-10 pt-16 px-6 text-center">
     <div class="max-w-4xl mx-auto">
-      <h1 translate="no" class="text-5xl md:text-7xl font-black tracking-tighter neon-cyan mb-6">The Definition of Structure & Dynamics</h1>
+      <h1 class="text-5xl md:text-7xl font-black tracking-tighter neon-cyan mb-6">The Definition of Structure & Dynamics</h1>
       <p class="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto">From static AlphaFold structures to dynamic conformational ensembles — the ultimate AI keyword powering the next decade of drug discovery.</p>
       <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})" 
               class="mt-12 w-full max-w-xs mx-auto bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-cyan-300 hover:to-purple-400 text-black font-bold text-xl md:text-2xl px-10 py-6 rounded-3xl transition-all">
@@ -134,22 +132,22 @@
       const canvas = document.getElementById('threeCanvas');
       scene = new THREE.Scene();
       camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+      renderer = new THREE.WebGLRenderer({canvas, alpha: true});
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.position.z = window.innerWidth < 768 ? 55 : 40;
 
       const particles = new THREE.BufferGeometry();
       const count = 1800;
       const pos = new Float32Array(count * 3);
-      for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 180;
+      for(let i = 0; i < count*3; i++) pos[i] = (Math.random()-0.5)*180;
       particles.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-      scene.add(new THREE.Points(particles, new THREE.PointsMaterial({ size: 0.13, color: '#00f5ff', transparent: true })));
+      scene.add(new THREE.Points(particles, new THREE.PointsMaterial({size:0.13, color:'#00f5ff', transparent:true})));
 
       const points = [];
-      for (let i = 0; i < 100; i++) {
-        points.push(new THREE.Vector3(Math.sin(i * 0.25) * 9, i * 0.35 - 18, Math.cos(i * 0.25) * 9));
+      for(let i = 0; i < 100; i++) {
+        points.push(new THREE.Vector3(Math.sin(i*0.25)*9, i*0.35-18, Math.cos(i*0.25)*9));
       }
-      helix = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), new THREE.LineBasicMaterial({ color: '#b026ff', linewidth: 4 }));
+      helix = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), new THREE.LineBasicMaterial({color:'#b026ff', linewidth:4}));
       scene.add(helix);
 
       function animate() {
@@ -162,27 +160,27 @@
 
     // 12 Scientific Pillars
     const pillarsData = [
-      { title: "Generative AIDD", desc: "Moving beyond static AlphaFold. AI now generates molecules using full conformational ensembles." },
-      { title: "PROTACs & Molecular Glues", desc: "Success depends on induced conformation of the ternary complex — the #1 metric in degradation." },
-      { title: "Cryo-EM Revolution", desc: "Visualizing proteins in multiple conformations in real time." },
-      { title: "Polymer & Material Science", desc: "Chain conformation determines strength and elasticity in next-gen materials." },
-      { title: "Immunotherapy Design", desc: "TCRs and antibodies rely on precise conformational matching." },
-      { title: "Industrial Enzymes", desc: "Conformational optimization boosts catalytic efficiency in green chemistry." },
-      { title: "Nanotech & DNA Origami", desc: "Programmed conformational switches for smart drug delivery." },
-      { title: "Neurodegenerative Diseases", desc: "Misfolded conformations are the root of Alzheimer’s and prion diseases." },
-      { title: "AgriTech & Crop Protection", desc: "Designing molecules that perfectly fit pest receptor conformations." },
-      { title: "Quantum Biology", desc: "Electron tunneling depends on exact nuclear conformations." },
-      { title: "Biosensors & Wearables", desc: "Conformational change upon binding powers next-gen diagnostics." },
-      { title: "FDA Regulatory Compliance", desc: "Conformational stability data is now mandatory for all biologics." }
+      {title:"Generative AIDD", desc:"Moving beyond static AlphaFold. AI now generates molecules using full conformational ensembles."},
+      {title:"PROTACs & Molecular Glues", desc:"Success depends on induced conformation of the ternary complex — the #1 metric in degradation."},
+      {title:"Cryo-EM Revolution", desc:"Visualizing proteins in multiple conformations in real time."},
+      {title:"Polymer & Material Science", desc:"Chain conformation determines strength and elasticity in next-gen materials."},
+      {title:"Immunotherapy Design", desc:"TCRs and antibodies rely on precise conformational matching."},
+      {title:"Industrial Enzymes", desc:"Conformational optimization boosts catalytic efficiency in green chemistry."},
+      {title:"Nanotech & DNA Origami", desc:"Programmed conformational switches for smart drug delivery."},
+      {title:"Neurodegenerative Diseases", desc:"Misfolded conformations are the root of Alzheimer’s and prion diseases."},
+      {title:"AgriTech & Crop Protection", desc:"Designing molecules that perfectly fit pest receptor conformations."},
+      {title:"Quantum Biology", desc:"Electron tunneling depends on exact nuclear conformations."},
+      {title:"Biosensors & Wearables", desc:"Conformational change upon binding powers next-gen diagnostics."},
+      {title:"FDA Regulatory Compliance", desc:"Conformational stability data is now mandatory for all biologics."}
     ];
 
     const lingData = [
-      { title: "Structure", desc: "Software architecture & robust AI system design" },
-      { title: "Formation", desc: "Geological & energy resource modeling" },
-      { title: "Adaptation", desc: "Regulatory technology (RegTech) compliance" },
-      { title: "Shape", desc: "3D computer vision & spatial computing" },
-      { title: "Creation", desc: "High-fidelity output of generative manufacturing" },
-      { title: "Conquest", desc: "Market leadership through standard setting" }
+      {title:"Structure", desc:"Software architecture & robust AI system design"},
+      {title:"Formation", desc:"Geological & energy resource modeling"},
+      {title:"Adaptation", desc:"Regulatory technology (RegTech) compliance"},
+      {title:"Shape", desc:"3D computer vision & spatial computing"},
+      {title:"Creation", desc:"High-fidelity output of generative manufacturing"},
+      {title:"Conquest", desc:"Market leadership through standard setting"}
     ];
 
     function renderCards() {
@@ -215,7 +213,7 @@
     };
 
     window.addEventListener('resize', () => {
-      if (renderer) {
+      if(renderer) {
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
